@@ -1,0 +1,48 @@
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+out/
+build.log
+build-log.xml
+
+# Local configuration files (android, sdk path, etc)
+*.properties
+
+.project
+.classpath
+.settings
+target/
+build/
+classes/
+gen-external-apklibs/
+tmp/
+
+# IDEA Ignores
+*.iml
+*.ipr
+*.iws
+.idea/
+.gradle/
+
+# MAC
+*.DS_Store
+
+# Linux
+*~
+
+# generated every build
+realm_version_check.timestamp
+
+app/build
+app-test/build
+lint-results.xml
