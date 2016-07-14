@@ -24,7 +24,7 @@ dependencies {
 
 publish {
     userOrg = 'ashdavies'
-    groupId = 'io.github'
+    groupId = 'io.ashdavies'
     artifactId = 'cumin-java'
 
     version = project.version

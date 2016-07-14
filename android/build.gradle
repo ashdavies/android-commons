@@ -63,7 +63,7 @@ dependencies {
 
 publish {
     userOrg = 'ashdavies'
-    groupId = 'io.github'
+    groupId = 'io.ashdavies'
     artifactId = 'cumin-android'
 
     version = project.version
