@@ -12,7 +12,7 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 dependencies {
-    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.google.code.gson:gson:2.7'
     compile 'com.google.code.findbugs:jsr305:3.0.1'
 
     compile 'io.reactivex:rxjava:1.0.14'
@@ -29,6 +29,6 @@ publish {
 
     version = project.version
     description = 'Project Cumin'
-    website = 'https://ashdavies.github.io/cumin'
+    website = 'https://github.com/ashdavies/cumin'
 }
 

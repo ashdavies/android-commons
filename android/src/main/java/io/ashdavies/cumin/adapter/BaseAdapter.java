@@ -7,6 +7,7 @@ import android.view.View;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -50,13 +51,19 @@ public abstract class BaseAdapter<VH extends BaseAdapter.ViewHolder<T>, T> exten
     }
 
     @Override
+    public void addItem(T item) {
+        items.add(item);
+        notifyDataSetChanged();
+    }
+
+    @Override
     public void addItem(int position, T item) {
         items.add(position, item);
         notifyItemInserted(position);
     }
 
     @Override
-    public void addItems(List<T> collection) {
+    public void addItems(Collection<T> collection) {
         items.addAll(collection);
         notifyDataSetChanged();
     }

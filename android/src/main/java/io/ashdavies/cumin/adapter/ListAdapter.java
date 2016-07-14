@@ -1,5 +1,6 @@
 package io.ashdavies.cumin.adapter;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface ListAdapter<T> {
@@ -7,9 +8,11 @@ public interface ListAdapter<T> {
 
     List<T> getItems();
 
+    void addItem(T item);
+
     void addItem(int position, T item);
 
-    void addItems(List<T> items);
+    void addItems(Collection<T> items);
 
     void removeItem(T item);
 

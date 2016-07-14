@@ -3,6 +3,7 @@ package io.ashdavies.cumin.adapter;
 import android.content.Context;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,16 +20,17 @@ public abstract class DelegateSafeAdapter<VH extends BaseAdapter.ViewHolder<T>, 
     }
 
     @Override
-    public void addItems(List<T> collection) {
+    public void addItems(Collection<T> collection) {
         super.addItems(filter(collection));
     }
 
-    private List<T> filter(List<T> items) {
+    private List<T> filter(Collection<T> items) {
+        List<T> list = new ArrayList<>(items);
         List<T> filtered = new ArrayList<>();
 
-        for (int i = 0; i < items.size(); i++) {
-            if (hasDelegate(items, i)) {
-                filtered.add(items.get(i));
+        for (int i = 0; i < list.size(); i++) {
+            if (hasDelegate(list, i)) {
+                filtered.add(list.get(i));
             }
         }
 

@@ -52,9 +52,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:24.0.0'
 
     compile 'com.jakewharton:butterknife:8.2.0'
-    compile 'com.google.dagger:dagger:2.0.2'
     apt 'com.jakewharton:butterknife-compiler:8.2.0'
-    apt 'com.google.dagger:dagger-compiler:2.0.2'
 
     compile 'io.reactivex:rxjava:1.0.0'
     compile 'io.reactivex:rxandroid:0.23.0'
@@ -72,5 +70,5 @@ publish {
 
     version = project.version
     description = 'Project Cumin'
-    website = 'https://ashdavies.github.io/cumin'
+    website = 'https://github.com/ashdavies/cumin'
 }

@@ -6,22 +6,22 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.ashdavies.cumin.Preconditions;
 import io.ashdavies.cumin.view.BaseView;
 import rx.subscriptions.CompositeSubscription;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
-    private CompositeSubscription subscription;
+    private CompositeSubscription subscriptions;
     private Unbinder unbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        subscription = new CompositeSubscription();
+        subscriptions = new CompositeSubscription();
 
         int layoutId = getLayoutId();
         setContentView(layoutId);
@@ -44,6 +44,8 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+        subscriptions.unsubscribe();
         unbinder.unbind();
     }
 
@@ -71,9 +73,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     }
 
     public void setActionBarTitle(CharSequence title) {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle(title);
-        }
+        Preconditions.notNull(getSupportActionBar(), "ActionBar not found").setTitle(title);
     }
 }

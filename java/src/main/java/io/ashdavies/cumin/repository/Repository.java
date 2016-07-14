@@ -2,6 +2,8 @@ package io.ashdavies.cumin.repository;
 
 import java.util.Collection;
 
+import rx.Observable;
+
 public interface Repository<Entity> {
-    Collection<Entity> get();
+    Observable<Collection<Entity>> get();
 }
