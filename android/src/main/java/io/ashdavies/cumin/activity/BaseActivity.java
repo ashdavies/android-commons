@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.ashdavies.cumin.Preconditions;
 import io.ashdavies.cumin.view.BaseView;
 import rx.subscriptions.CompositeSubscription;
 
@@ -73,6 +73,9 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     }
 
     public void setActionBarTitle(CharSequence title) {
-        Preconditions.notNull(getSupportActionBar(), "ActionBar not found").setTitle(title);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(title);
+        }
     }
 }

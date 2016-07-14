@@ -1,10 +1,9 @@
 package io.ashdavies.cumin.presenter;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
-
-import javax.annotation.Nullable;
 
 import io.ashdavies.cumin.view.BaseView;
 
