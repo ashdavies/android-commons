@@ -3,9 +3,9 @@ package io.ashdavies.cumin.presenter;
 import android.support.annotation.NonNull;
 
 public interface ViewPresenter<View> {
-    void onAttach(@NonNull View view);
+  void onAttach(@NonNull View view);
 
-    void onDetach();
+  void onDetach();
 
-    void onError(@NonNull Throwable throwable);
+  void onError(@NonNull Throwable throwable);
 }

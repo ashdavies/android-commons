@@ -5,5 +5,5 @@ import java.util.Collection;
 import rx.Observable;
 
 public interface Repository<Entity> {
-    Observable<Collection<Entity>> get();
+  Observable<Collection<Entity>> get();
 }

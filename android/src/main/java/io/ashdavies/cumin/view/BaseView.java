@@ -3,11 +3,11 @@ package io.ashdavies.cumin.view;
 import android.content.Context;
 
 public interface BaseView {
-    Context getContext();
+  Context getContext();
 
-    void showProgress();
+  void showProgress();
 
-    void hideProgress();
+  void hideProgress();
 
-    void onError(Throwable throwable);
+  void onError(Throwable throwable);
 }

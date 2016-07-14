@@ -4,17 +4,17 @@ import java.util.Collection;
 import java.util.List;
 
 public interface ListAdapter<T> {
-    T getItem(int position);
+  T getItem(int position);
 
-    List<T> getItems();
+  List<T> getItems();
 
-    void addItem(T item);
+  void addItem(T item);
 
-    void addItem(int position, T item);
+  void addItem(int position, T item);
 
-    void addItems(Collection<T> items);
+  void addItems(Collection<T> items);
 
-    void removeItem(T item);
+  void removeItem(T item);
 
-    void removeItem(int position);
+  void removeItem(int position);
 }

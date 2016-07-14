@@ -13,30 +13,30 @@ import java.lang.reflect.Method;
 
 public class MockApplication extends Application implements TestLifecycleApplication {
 
-    @Override
-    public void beforeTest(Method method) {
-        // Not implemented
-    }
+  @Override
+  public void beforeTest(Method method) {
+    // Not implemented
+  }
+
+  @Override
+  public void prepareTest(Object test) {
+    // Not implemented
+  }
+
+  @Override
+  public void afterTest(Method method) {
+    // Not implemented
+  }
+
+  public static Context getContext() {
+    return RuntimeEnvironment.application;
+  }
+
+  public static class MockTestLifecycle extends DefaultTestLifecycle {
 
     @Override
-    public void prepareTest(Object test) {
-        // Not implemented
+    public Application createApplication(Method method, AndroidManifest manifest, Config config) {
+      return new MockApplication();
     }
-
-    @Override
-    public void afterTest(Method method) {
-        // Not implemented
-    }
-
-    public static Context getContext() {
-        return RuntimeEnvironment.application;
-    }
-
-    public static class MockTestLifecycle extends DefaultTestLifecycle {
-
-        @Override
-        public Application createApplication(Method method, AndroidManifest manifest, Config config) {
-            return new MockApplication();
-        }
-    }
+  }
 }

@@ -11,20 +11,21 @@ import android.view.ViewGroup;
 
 public abstract class BaseFragment extends Fragment {
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(getLayoutId(), container, false);
+  @Override
+  public View onCreateView(
+      LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    return inflater.inflate(getLayoutId(), container, false);
+  }
+
+  @Nullable
+  protected View findViewById(@IdRes int resId) {
+    if (!isAdded() || getView() == null) {
+      return null;
     }
 
-    @Nullable
-    protected View findViewById(@IdRes int resId) {
-        if (!isAdded() || getView() == null) {
-            return null;
-        }
+    return getView().findViewById(resId);
+  }
 
-        return getView().findViewById(resId);
-    }
-
-    @LayoutRes
-    protected abstract int getLayoutId();
+  @LayoutRes
+  protected abstract int getLayoutId();
 }

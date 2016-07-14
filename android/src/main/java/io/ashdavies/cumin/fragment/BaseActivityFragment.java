@@ -5,17 +5,17 @@ import android.content.Context;
 import io.ashdavies.cumin.activity.BaseActivity;
 
 public abstract class BaseActivityFragment<Activity extends BaseActivity> extends BaseFragment {
-    private Activity activity;
+  private Activity activity;
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+  @Override
+  public void onAttach(Context context) {
+    super.onAttach(context);
 
-        //noinspection unchecked
-        activity = (Activity) getActivity();
-    }
+    //noinspection unchecked
+    activity = (Activity) getActivity();
+  }
 
-    protected Activity getParentActivity() {
-        return activity;
-    }
+  protected Activity getParentActivity() {
+    return activity;
+  }
 }

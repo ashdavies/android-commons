@@ -8,34 +8,34 @@ import android.view.MenuItem;
 
 public abstract class BaseToolbarActivity extends BaseActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
 
-        setSupportActionBar(getToolbar());
-        onActionBarSet(getSupportActionBar());
+    setSupportActionBar(getToolbar());
+    onActionBarSet(getSupportActionBar());
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case android.R.id.home:
+        finish();
+        return true;
+
+      default:
+        return super.onOptionsItemSelected(item);
     }
+  }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
+  private Toolbar getToolbar() {
+    return (Toolbar) findViewById(getToolbarId());
+  }
 
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+  @IdRes
+  protected abstract int getToolbarId();
 
-    private Toolbar getToolbar() {
-        return (Toolbar) findViewById(getToolbarId());
-    }
-
-    @IdRes
-    protected abstract int getToolbarId();
-
-    protected void onActionBarSet(ActionBar actionBar) {
-        // No implementation
-    }
+  protected void onActionBarSet(ActionBar actionBar) {
+    // No implementation
+  }
 }

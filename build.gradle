@@ -2,12 +2,12 @@ buildscript {
     repositories {
         jcenter()
 
-        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
     }
 
     dependencies {
         classpath 'com.novoda:bintray-release:0.3.4'
-        classpath 'gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.3.2'
+        classpath 'com.github.sherter.googlejavaformatgradleplugin:google-java-format-gradle-plugin:0.4-SNAPSHOT'
     }
 }
 

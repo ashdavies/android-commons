@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 
 public interface AdapterDelegate<VH, T> {
-    int getItemViewType();
+  int getItemViewType();
 
-    boolean isForViewType(@NonNull T items, int position);
+  boolean isForViewType(@NonNull T items, int position);
 
-    @NonNull
-    VH onCreateViewHolder(ViewGroup parent);
+  @NonNull
+  VH onCreateViewHolder(ViewGroup parent);
 
-    void onBindViewHolder(@NonNull T items, int position, @NonNull VH holder);
+  void onBindViewHolder(@NonNull T items, int position, @NonNull VH holder);
 }
