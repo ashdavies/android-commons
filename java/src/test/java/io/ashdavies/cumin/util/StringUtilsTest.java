@@ -1,32 +1,36 @@
 package io.ashdavies.cumin.util;
 
+import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+@RunWith(MockitoJUnitRunner.class)
 public class StringUtilsTest {
 
     @Test
     public void assertJoinNull() {
-        assertEquals(null, StringUtils.join(null, ",", 0, 0));
+        Assert.assertEquals(null, StringUtils.join(null, ",", 0, 0));
     }
 
     @Test
     public void assertJoinNullEmpty() {
-        assertEquals(StringUtils.EMPTY, StringUtils.join(new String[]{}, ",", 0, 0));
+        Assert.assertEquals(StringUtils.EMPTY, StringUtils.join(new String[]{}, ",", 0, 0));
     }
 
     @Test
     public void assertPartialJoin() {
         String[] array = new String[] { "a", "b", "c", "d", "e" };
-        assertEquals("a,b,c", StringUtils.join(array, ",", 0, 3));
+        Assert.assertEquals("a,b,c", StringUtils.join(array, ",", 0, 3));
     }
 
     @Test
     public void assertCompleteJoin() {
         String[] array = new String[] { "a", "b", "c", "d", "e" };
-        assertEquals("a,b,c,d,e", StringUtils.join(array, ","));
+        Assert.assertEquals("a,b,c,d,e", StringUtils.join(array, ","));
     }
 
     @Test
@@ -41,12 +45,5 @@ public class StringUtilsTest {
         for (String item : StringUtils.split("qwertzuiop", 4)) {
             assertTrue(item.length() <= 4);
         }
-    }
-
-    @Test
-    public void assertIsEmpty() {
-        assertEquals(true, StringUtils.isEmpty(null));
-        assertEquals(true, StringUtils.isEmpty(""));
-        assertEquals(false, StringUtils.isEmpty("hello"));
     }
 }

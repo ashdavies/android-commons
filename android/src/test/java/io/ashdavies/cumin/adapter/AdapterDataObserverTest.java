@@ -7,20 +7,16 @@ import android.view.ViewGroup;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
-import org.robolectric.RobolectricGradleTestRunner;
-import org.robolectric.annotation.Config;
 
 import java.util.List;
 
-import de.number26.rapier.BuildConfig;
+import io.ashdavies.cumin.ApplicationTestRunner;
 import rx.Observable;
 import rx.observers.TestSubscriber;
 
 import static org.junit.Assert.assertEquals;
 
-@Config(constants = BuildConfig.class, sdk = 21)
-@RunWith(RobolectricGradleTestRunner.class)
+@RunWith(ApplicationTestRunner.class)
 public class AdapterDataObserverTest {
     private AdapterStub adapter;
 

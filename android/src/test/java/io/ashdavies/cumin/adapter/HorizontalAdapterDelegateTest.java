@@ -14,10 +14,8 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
-import org.robolectric.RobolectricGradleTestRunner;
-import org.robolectric.annotation.Config;
 
-import de.number26.rapier.BuildConfig;
+import io.ashdavies.cumin.ApplicationTestRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
@@ -28,8 +26,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@Config(constants = BuildConfig.class, sdk = 21)
-@RunWith(RobolectricGradleTestRunner.class)
+@RunWith(ApplicationTestRunner.class)
 public class HorizontalAdapterDelegateTest {
     private static final int PARENT_WIDTH = 128;
     private static final float CHILD_WIDTH_SCALE = 0.5f;

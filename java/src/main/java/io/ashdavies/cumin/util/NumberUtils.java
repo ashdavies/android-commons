@@ -2,6 +2,7 @@ package io.ashdavies.cumin.util;
 
 public final class NumberUtils {
     private NumberUtils() {
+        throw new IllegalStateException("No instances");
     }
 
     public static float limit(double amount, double upper) {

@@ -1,5 +1,11 @@
 package io.ashdavies.cumin.util;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import static junit.framework.Assert.assertTrue;
+
 @RunWith(MockitoJUnitRunner.class)
 public class Base64UtilsTest {
     private static final String BASE64_REGEX = "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$";

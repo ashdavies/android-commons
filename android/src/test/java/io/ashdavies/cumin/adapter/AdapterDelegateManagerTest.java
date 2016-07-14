@@ -9,13 +9,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
-import org.robolectric.RobolectricGradleTestRunner;
-import org.robolectric.annotation.Config;
 
 import java.util.Collections;
 import java.util.List;
 
-import de.number26.rapier.BuildConfig;
+import io.ashdavies.cumin.ApplicationTestRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -23,8 +21,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@Config(constants = BuildConfig.class, sdk = 21)
-@RunWith(RobolectricGradleTestRunner.class)
+@RunWith(ApplicationTestRunner.class)
 public class AdapterDelegateManagerTest {
     private AdapterDelegateManager<RecyclerView.ViewHolder, List<String>> manager;
 

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import io.ashdavies.cumin.ApplicationTestRunner;
+
 import static junit.framework.Assert.assertEquals;
 
 @RunWith(ApplicationTestRunner.class)

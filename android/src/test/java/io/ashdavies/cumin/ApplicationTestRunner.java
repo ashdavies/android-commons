@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
 
-package de.number26.machete.android;
-
-import org.junit.runners.model.InitializationError;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.TestLifecycle;
 import org.robolectric.annotation.Config;

@@ -2,7 +2,12 @@ package io.ashdavies.cumin.util;
 
 import android.graphics.Point;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import java.lang.reflect.Constructor;
+
+import io.ashdavies.cumin.ApplicationTestRunner;
 
 import static junit.framework.Assert.assertEquals;
 

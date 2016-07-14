@@ -53,6 +53,21 @@ public final class StringUtils {
         return builder.toString();
     }
 
+    public static String[] split(String string, int size) {
+        List<String> parts = new ArrayList<>();
+
+        while (string.length() > size) {
+            parts.add(string.substring(0, size));
+            string = string.substring(size);
+        }
+
+        if (string.length() > 0) {
+            parts.add(string);
+        }
+
+        return parts.toArray(new String[parts.size()]);
+    }
+
     public static String toTitleCase(CharSequence input) {
         String[] words = input.toString().split(SPACE);
 

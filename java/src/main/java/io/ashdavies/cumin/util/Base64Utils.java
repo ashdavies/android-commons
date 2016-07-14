@@ -1,8 +1,7 @@
 package io.ashdavies.cumin.util;
 
-import android.util.Base64;
-
 import java.nio.charset.Charset;
+import okio.ByteString;
 
 public final class Base64Utils {
     private static final Charset CHARSET = Charset.forName("UTF-8");
@@ -20,6 +19,10 @@ public final class Base64Utils {
     }
 
     public static String encode(byte[] bytes) {
-        return Base64.encodeToString(bytes, Base64.DEFAULT);
+        return ByteString.of(bytes).base64();
+    }
+
+    public static byte[] decode(String input) {
+        return ByteString.decodeBase64(input).toByteArray();
     }
 }

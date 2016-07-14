@@ -100,6 +100,21 @@ public final class TimeUtils {
                 && comparison.get(Calendar.DAY_OF_YEAR) == calendar.get(Calendar.DAY_OF_YEAR);
     }
 
+    public static boolean wasYesterday(long millis) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(millis);
+
+        return wasYesterday(calendar);
+    }
+
+    public static boolean wasYesterday(Calendar calendar) {
+        Calendar yesterday = Calendar.getInstance();
+        yesterday.add(Calendar.DATE, -1);
+
+        return yesterday.get(Calendar.YEAR) == calendar.get(Calendar.YEAR)
+                && yesterday.get(Calendar.DAY_OF_YEAR) == calendar.get(Calendar.DAY_OF_YEAR);
+    }
+
     public static boolean isWithin(long millis, long limit) {
         return System.currentTimeMillis() - millis < limit;
     }
@@ -110,5 +125,29 @@ public final class TimeUtils {
 
     public static double hoursRemaining(long millis) {
         return Math.floor((System.currentTimeMillis() - millis) / TimeUnit.HOURS.toMillis(1));
+    }
+
+    public static long daysBetween(long from, long to) {
+        if (from > to) {
+            return 0;
+        }
+
+        return (long) Math.ceil((to - from) / TimeUnit.DAYS.toMillis(1));
+    }
+
+    public static long startOfDay(long millis) {
+        return startOfDay(millis, TimeZone.getDefault());
+    }
+
+    public static long startOfDay(long millis, TimeZone zone) {
+        Calendar calendar = Calendar.getInstance(zone);
+        calendar.setTimeInMillis(millis);
+
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+        return calendar.getTimeInMillis();
     }
 }
