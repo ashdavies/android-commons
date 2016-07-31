@@ -53,8 +53,7 @@ public abstract class BaseAdapter<VH extends BaseAdapter.ViewHolder<T>, T>
 
   @Override
   public void addItem(T item) {
-    items.add(item);
-    notifyDataSetChanged();
+    addItem(0, item);
   }
 
   @Override

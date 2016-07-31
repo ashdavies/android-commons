@@ -10,18 +10,16 @@ public final class NetworkUtils {
   }
 
   public static boolean isConnected(Context context) {
-    ConnectivityManager manager =
-        (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-    NetworkInfo network = manager.getActiveNetworkInfo();
+    NetworkInfo network = getManager(context).getActiveNetworkInfo();
     return network != null && network.isConnected();
   }
 
   public static boolean isConnectedOrConnecting(Context context) {
-    ConnectivityManager manager =
-        (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-    NetworkInfo network = manager.getActiveNetworkInfo();
+    NetworkInfo network = getManager(context).getActiveNetworkInfo();
     return network != null && network.isConnectedOrConnecting();
+  }
+
+  private static ConnectivityManager getManager(Context context) {
+    return (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
   }
 }
