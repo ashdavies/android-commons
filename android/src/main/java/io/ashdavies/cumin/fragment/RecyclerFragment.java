@@ -10,10 +10,12 @@ import java.util.Collection;
 import io.ashdavies.cumin.adapter.BaseAdapter;
 import io.ashdavies.cumin.view.ListView;
 
-public abstract class RecyclerFragment<T, VH extends BaseAdapter.ViewHolder<T>> extends BaseFragment implements ListView<T> {
+public abstract class RecyclerFragment<T, VH extends BaseAdapter.ViewHolder<T>> extends BaseFragment
+    implements ListView<T> {
   private final BaseAdapter<VH, T> adapter = createAdapter();
 
-  @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+  @Override
+  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
     getRecyclerView().setAdapter(adapter);
