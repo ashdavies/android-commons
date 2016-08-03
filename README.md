@@ -1,8 +1,8 @@
 ### Android Commons###
 ![Build Status](https://img.shields.io/travis/ashdavies/cumin.svg)
 ![Coverage](https://img.shields.io/codecov/c/github/ashdavies/cumin.svg)
+![Version](https://img.shields.io/badge/version-0.4.0-yellowgreen.svg)
 ![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)
-![jCenter](https://img.shields.io/badge/version-0.4.0-yellowgreen.svg)
 
 **Common adapters, list helpers and utilities for Android development**
 
