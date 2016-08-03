@@ -5,6 +5,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
@@ -16,12 +17,19 @@ repositories {
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'bintray-release'
+apply plugin: 'jacoco-android'
 
 apply plugin: 'com.github.sherter.google-java-format'
 
 android {
     compileSdkVersion 24
     buildToolsVersion '24.0.0'
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+    }
 
     defaultConfig {
         minSdkVersion 14
