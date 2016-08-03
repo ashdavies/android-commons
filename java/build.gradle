@@ -24,10 +24,10 @@ dependencies {
 publish {
     userOrg = 'ashdavies'
     groupId = 'io.ashdavies'
-    artifactId = 'cumin-java'
+    artifactId = 'commons-java'
 
     version = project.version
-    description = 'Project Cumin'
-    website = 'https://github.com/ashdavies/cumin'
+    description = 'Android Commons'
+    website = 'https://github.com/ashdavies/android-commons'
 }
 
