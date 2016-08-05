@@ -3,7 +3,8 @@ package io.ashdavies.commons.transformer;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FlipSetTransformer<Input, Output> extends SetTransformer<Input, Output> implements FlipTransformer<Set<Input>, Set<Output>> {
+public class FlipSetTransformer<Input, Output> extends SetTransformer<Input, Output>
+    implements FlipTransformer<Set<Input>, Set<Output>> {
   private final FlipTransformer<Input, Output> transformer;
 
   public FlipSetTransformer(FlipTransformer<Input, Output> transformer) {

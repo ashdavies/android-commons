@@ -3,7 +3,8 @@ package io.ashdavies.commons.transformer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlipListTransformer<Input, Output> extends ListTransformer<Input, Output> implements FlipTransformer<List<Input>, List<Output>> {
+public class FlipListTransformer<Input, Output> extends ListTransformer<Input, Output>
+    implements FlipTransformer<List<Input>, List<Output>> {
   private final FlipTransformer<Input, Output> transformer;
 
   public FlipListTransformer(FlipTransformer<Input, Output> transformer) {

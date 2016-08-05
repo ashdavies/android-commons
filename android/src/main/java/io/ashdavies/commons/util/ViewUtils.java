@@ -55,13 +55,14 @@ public final class ViewUtils {
     return inflate(layoutId, root, false);
   }
 
-  public static <T extends View> T inflate(@LayoutRes int layoutId, ViewGroup root, boolean attachToRoot) {
+  public static <T extends View> T inflate(
+      @LayoutRes int layoutId, ViewGroup root, boolean attachToRoot) {
     return inflate(root.getContext(), layoutId, root, attachToRoot);
   }
 
   @SuppressWarnings("unchecked")
-  private static <T extends View> T inflate(Context context, @LayoutRes int layoutId,
-                                            @Nullable ViewGroup root, boolean attachToRoot) {
+  private static <T extends View> T inflate(
+      Context context, @LayoutRes int layoutId, @Nullable ViewGroup root, boolean attachToRoot) {
     return (T) LayoutInflater.from(context).inflate(layoutId, root, attachToRoot);
   }
 }
