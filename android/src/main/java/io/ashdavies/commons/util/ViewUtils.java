@@ -47,17 +47,21 @@ public final class ViewUtils {
     return (T) view.getLayoutParams();
   }
 
-  @SuppressWarnings("unchecked")
   public static <T extends View> T inflate(Context context, @LayoutRes int layoutId) {
-    return (T) LayoutInflater.from(context).inflate(layoutId, null, false);
+    return inflate(context, layoutId, null, false);
   }
 
-  public static <T extends View> T inflate(ViewGroup root, int layoutId) {
-    return inflate(root, layoutId, false);
+  public static <T extends View> T inflate(@LayoutRes int layoutId, ViewGroup root) {
+    return inflate(layoutId, root, false);
+  }
+
+  public static <T extends View> T inflate(@LayoutRes int layoutId, ViewGroup root, boolean attachToRoot) {
+    return inflate(root.getContext(), layoutId, root, attachToRoot);
   }
 
   @SuppressWarnings("unchecked")
-  private static <T extends View> T inflate(ViewGroup root, int layoutId, boolean attach) {
-    return (T) LayoutInflater.from(root.getContext()).inflate(layoutId, root, attach);
+  private static <T extends View> T inflate(Context context, @LayoutRes int layoutId,
+                                            @Nullable ViewGroup root, boolean attachToRoot) {
+    return (T) LayoutInflater.from(context).inflate(layoutId, root, attachToRoot);
   }
 }
