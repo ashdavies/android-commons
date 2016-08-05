@@ -1,7 +1,7 @@
 ### Android Commons###
 ![Build Status](https://img.shields.io/travis/ashdavies/android-commons.svg)
 ![Coverage](https://img.shields.io/codecov/c/github/ashdavies/android-commons.svg)
-![Version](https://img.shields.io/badge/version-0.4.1-yellowgreen.svg)
+![Version](https://img.shields.io/badge/version-0.4.2-yellowgreen.svg)
 ![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)
 
 **Common adapters, list helpers and utilities for Android development**
