@@ -8,20 +8,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.ashdavies.commons.view.BaseView;
-import rx.subscriptions.CompositeSubscription;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
-  private CompositeSubscription subscriptions;
-  private Unbinder unbinder;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    subscriptions = new CompositeSubscription();
 
     int layoutId = getLayoutId();
     setContentView(layoutId);
@@ -36,23 +29,8 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
   protected abstract int getLayoutId();
 
   @Override
-  public void setContentView(int layoutResId) {
-    super.setContentView(layoutResId);
-    unbinder = ButterKnife.bind(this);
-  }
-
-  @Override
-  protected void onDestroy() {
-    super.onDestroy();
-
-    subscriptions.unsubscribe();
-    unbinder.unbind();
-  }
-
-  @Override
   public boolean shouldShowRequestPermissionRationale(@NonNull String permission) {
-    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-        && super.shouldShowRequestPermissionRationale(permission);
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && super.shouldShowRequestPermissionRationale(permission);
   }
 
   public Context getContext() {

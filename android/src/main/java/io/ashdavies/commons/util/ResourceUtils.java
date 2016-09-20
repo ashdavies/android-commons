@@ -3,10 +3,10 @@ package io.ashdavies.commons.util;
 import android.content.Context;
 import android.support.annotation.ArrayRes;
 import android.support.annotation.DimenRes;
-
 import java.util.Random;
 
 public final class ResourceUtils {
+
   private ResourceUtils() {
     throw new IllegalStateException("No instances");
   }

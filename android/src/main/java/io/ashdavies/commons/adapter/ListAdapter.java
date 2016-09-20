@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 public interface ListAdapter<T> {
+
   T getItem(int position);
 
   List<T> getItems();

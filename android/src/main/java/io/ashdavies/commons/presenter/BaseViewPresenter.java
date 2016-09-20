@@ -2,12 +2,11 @@ package io.ashdavies.commons.presenter;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
+import io.ashdavies.commons.view.BaseView;
 import java.lang.ref.WeakReference;
 
-import io.ashdavies.commons.view.BaseView;
-
 public abstract class BaseViewPresenter<View extends BaseView> implements ViewPresenter<View> {
+
   private WeakReference<View> reference;
 
   @Override

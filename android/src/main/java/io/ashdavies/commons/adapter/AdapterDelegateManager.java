@@ -5,6 +5,7 @@ import android.support.v4.util.SparseArrayCompat;
 import android.view.ViewGroup;
 
 public final class AdapterDelegateManager<VH, T> {
+
   private final SparseArrayCompat<AdapterDelegate<VH, T>> delegates = new SparseArrayCompat<>();
 
   public AdapterDelegateManager<VH, T> addDelegate(@NonNull AdapterDelegate<VH, T> delegate) {
@@ -16,8 +17,7 @@ public final class AdapterDelegateManager<VH, T> {
     int viewType = delegate.getItemViewType();
 
     if (!replace && delegates.get(viewType) != null) {
-      throw new IllegalArgumentException(
-          "An AdapterDelegate is already registered for viewType + " + viewType);
+      throw new IllegalArgumentException("An AdapterDelegate is already registered for viewType + " + viewType);
     }
 
     delegates.put(viewType, delegate);

@@ -2,13 +2,11 @@ package io.ashdavies.commons.adapter;
 
 import android.content.Context;
 import android.view.ViewGroup;
-
 import java.util.List;
 
-public abstract class DelegateAdapter<VH extends BaseAdapter.ViewHolder<T>, T>
-    extends BaseAdapter<VH, T> {
-  private final AdapterDelegateManager<VH, List<? extends T>> delegates =
-      new AdapterDelegateManager<>();
+public abstract class DelegateAdapter<VH extends BaseAdapter.ViewHolder<T>, T> extends BaseAdapter<VH, T> {
+
+  private final AdapterDelegateManager<VH, List<? extends T>> delegates = new AdapterDelegateManager<>();
 
   public DelegateAdapter(Context context, List<T> items) {
     super(context, items);

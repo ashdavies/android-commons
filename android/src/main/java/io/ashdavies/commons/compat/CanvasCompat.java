@@ -7,6 +7,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 
 public final class CanvasCompat {
+
   private static final RectF rectF = new RectF();
 
   private CanvasCompat() {

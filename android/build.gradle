@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.android.tools.build:gradle:2.2.0'
         classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
@@ -19,11 +19,9 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'bintray-release'
 apply plugin: 'jacoco-android'
 
-apply plugin: 'com.github.sherter.google-java-format'
-
 android {
     compileSdkVersion 24
-    buildToolsVersion '24.0.0'
+    buildToolsVersion '24.0.2'
 
     buildTypes {
         debug {
@@ -54,16 +52,12 @@ android {
 dependencies {
     compile project(':java')
 
-    compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'com.android.support:cardview-v7:24.1.1'
-    compile 'com.android.support:recyclerview-v7:24.1.1'
-
-    compile 'com.jakewharton:butterknife:8.2.0'
-    apt 'com.jakewharton:butterknife-compiler:8.2.0'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:cardview-v7:24.2.1'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
 
     compile 'io.reactivex:rxjava:1.0.0'
     compile 'io.reactivex:rxandroid:0.23.0'
-    compile 'com.jakewharton.rxbinding:rxbinding:0.3.0'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'

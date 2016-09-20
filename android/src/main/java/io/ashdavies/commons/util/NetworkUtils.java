@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 public final class NetworkUtils {
+
   private NetworkUtils() {
     throw new IllegalStateException("No instances");
   }

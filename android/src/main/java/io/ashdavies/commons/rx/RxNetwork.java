@@ -1,8 +1,7 @@
 package io.ashdavies.commons.rx;
 
-import java.util.concurrent.TimeUnit;
-
 import io.ashdavies.commons.view.BaseView;
+import java.util.concurrent.TimeUnit;
 import rx.Observable;
 import rx.functions.Action0;
 import rx.functions.Action1;
@@ -10,6 +9,7 @@ import rx.functions.Func1;
 import rx.functions.Func2;
 
 public final class RxNetwork {
+
   private RxNetwork() {
     throw new RuntimeException("No instances");
   }

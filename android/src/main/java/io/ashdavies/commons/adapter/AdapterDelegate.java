@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 
 public interface AdapterDelegate<VH, T> {
+
   int getItemViewType();
 
   boolean isForViewType(@NonNull T items, int position);

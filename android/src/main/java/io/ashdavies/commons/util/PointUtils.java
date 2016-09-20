@@ -3,6 +3,7 @@ package io.ashdavies.commons.util;
 import android.graphics.Point;
 
 public final class PointUtils {
+
   private PointUtils() {
     throw new RuntimeException("No instances");
   }

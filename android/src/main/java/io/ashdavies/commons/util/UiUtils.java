@@ -5,6 +5,7 @@ import android.support.annotation.StringRes;
 import android.widget.Toast;
 
 public final class UiUtils {
+
   private UiUtils() {
     throw new IllegalStateException("No instances");
   }

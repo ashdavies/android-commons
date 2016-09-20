@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 public final class IntentUtils {
+
   private IntentUtils() {
     throw new IllegalStateException("No instances");
   }

@@ -1,10 +1,10 @@
 package io.ashdavies.commons.fragment;
 
 import android.content.Context;
-
 import io.ashdavies.commons.activity.BaseActivity;
 
 public abstract class BaseActivityFragment<Activity extends BaseActivity> extends BaseFragment {
+
   private Activity activity;
 
   @Override

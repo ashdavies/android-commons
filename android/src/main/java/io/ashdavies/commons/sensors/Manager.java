@@ -5,16 +5,15 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-
+import io.ashdavies.commons.rx.RxSupport;
 import java.util.List;
 import java.util.Locale;
-
-import io.ashdavies.commons.rx.RxSupport;
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action0;
 
 public class Manager {
+
   private SensorManager manager;
 
   public Manager(Context context) {

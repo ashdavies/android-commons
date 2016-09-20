@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public abstract class HorizontalAdapterDelegate<VH, T> implements AdapterDelegate<VH, T> {
+
   private static final float DEFAULT_WIDTH_SCALE = 1.0f;
 
   private final LayoutInflater inflater;

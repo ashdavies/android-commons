@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 public class PagerItemDecoration extends RecyclerView.ItemDecoration {
+
   private final float defaultOffsetRatio;
 
   public PagerItemDecoration(float defaultOffsetRatio) {
@@ -12,8 +13,7 @@ public class PagerItemDecoration extends RecyclerView.ItemDecoration {
   }
 
   @Override
-  public void getItemOffsets(
-      Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+  public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
     if (isFirst(parent, view, state)) {
       outRect.set(getOffset(parent, view), 0, 0, 0);
     } else if (isLast(parent, view, state)) {

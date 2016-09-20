@@ -10,7 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
-  private static final int[] ATTRS = new int[] {android.R.attr.listDivider};
+
+  private static final int[] ATTRS = new int[] { android.R.attr.listDivider };
 
   public static final int HORIZONTAL_LIST = LinearLayoutManager.HORIZONTAL;
   public static final int VERTICAL_LIST = LinearLayoutManager.VERTICAL;
@@ -82,8 +83,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
   }
 
   @Override
-  public void getItemOffsets(
-      Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+  public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
     if (orientation == VERTICAL_LIST) {
       outRect.set(0, 0, 0, divider.getIntrinsicHeight());
     } else {

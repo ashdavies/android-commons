@@ -4,17 +4,13 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+public abstract class BaseAdapter<VH extends BaseAdapter.ViewHolder<T>, T> extends RecyclerView.Adapter<VH> implements ListAdapter<T> {
 
-public abstract class BaseAdapter<VH extends BaseAdapter.ViewHolder<T>, T>
-    extends RecyclerView.Adapter<VH> implements ListAdapter<T> {
   private final LayoutInflater inflater;
   private final List<T> items;
 
@@ -83,46 +79,23 @@ public abstract class BaseAdapter<VH extends BaseAdapter.ViewHolder<T>, T>
     return inflater;
   }
 
-  public static abstract class ContextViewHolder<T> extends BaseAdapter.ViewHolder<T> {
+  public static abstract class ViewHolder<T> extends RecyclerView.ViewHolder {
+
     private WeakReference<Context> context;
 
-    public ContextViewHolder(Context context, View view) {
+    public ViewHolder(Context context, View view) {
       super(view);
       bind(context);
+    }
+
+    public Context getContext() {
+      return context.get();
     }
 
     private void bind(Context context) {
       this.context = new WeakReference<>(context);
     }
 
-    public Context getContext() {
-      return context.get();
-    }
-  }
-
-  public static abstract class ViewHolder<T> extends RecyclerView.ViewHolder
-      implements View.OnClickListener {
-    private Unbinder unbinder;
-
-    public ViewHolder(View view) {
-      super(view);
-      onAttach(view);
-    }
-
-    private void onAttach(View view) {
-      unbinder = ButterKnife.bind(this, view);
-      view.setOnClickListener(this);
-    }
-
-    protected void onDetach() {
-      unbinder.unbind();
-    }
-
-    public abstract void bind(T item);
-
-    @Override
-    public void onClick(View view) {
-      // Default implementation
-    }
+    protected abstract void bind(T t);
   }
 }

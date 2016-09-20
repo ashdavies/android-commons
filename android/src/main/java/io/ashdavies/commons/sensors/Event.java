@@ -2,10 +2,10 @@ package io.ashdavies.commons.sensors;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
-
 import rx.functions.Func1;
 
 public class Event {
+
   private SensorEvent event;
   private Sensor sensor;
   private int accuracy = -1;

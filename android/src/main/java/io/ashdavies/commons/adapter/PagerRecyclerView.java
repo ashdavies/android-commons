@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class PagerRecyclerView extends RecyclerView {
+
   public PagerRecyclerView(Context context) {
     super(context);
   }

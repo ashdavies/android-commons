@@ -1,11 +1,11 @@
 package io.ashdavies.commons.adapter;
 
 import android.support.v7.widget.RecyclerView;
-
 import rx.Observable;
 import rx.subjects.PublishSubject;
 
 public final class AdapterDataObserver extends RecyclerView.AdapterDataObserver {
+
   private final PublishSubject<AdapterEvent> subject;
 
   private AdapterDataObserver() {
@@ -66,6 +66,7 @@ public final class AdapterDataObserver extends RecyclerView.AdapterDataObserver 
   }
 
   public static class AdapterEvent {
+
     private final Type type;
     private final Range range;
     private final Object payload;
@@ -105,6 +106,7 @@ public final class AdapterDataObserver extends RecyclerView.AdapterDataObserver 
     }
 
     public static class Range {
+
       private final int from;
       private final int to;
       private final int count;

@@ -7,10 +7,9 @@ buildscript {
 
     dependencies {
         classpath 'com.novoda:bintray-release:0.3.4'
-        classpath 'com.github.sherter.googlejavaformatgradleplugin:google-java-format-gradle-plugin:0.4-SNAPSHOT'
     }
 }
 
 allprojects {
-    version = '0.4.2'
+    version = '0.5.0'
 }

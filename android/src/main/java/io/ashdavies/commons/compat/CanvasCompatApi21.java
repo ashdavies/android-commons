@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 class CanvasCompatApi21 {
+
   private CanvasCompatApi21() {
     throw new IllegalStateException("No instances");
   }

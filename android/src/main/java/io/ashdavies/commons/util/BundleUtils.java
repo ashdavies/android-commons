@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 
 public final class BundleUtils {
+
   private BundleUtils() {
     throw new IllegalStateException("No instances");
   }
@@ -25,6 +26,7 @@ public final class BundleUtils {
   }
 
   public static class Builder {
+
     private final Bundle bundle;
 
     public Builder() {

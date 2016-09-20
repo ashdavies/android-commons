@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
-import java.util.Collection;
-
 import io.ashdavies.commons.adapter.BaseAdapter;
 import io.ashdavies.commons.view.ListView;
+import java.util.Collection;
 
 public abstract class RecyclerFragment<T, VH extends BaseAdapter.ViewHolder<T>> extends BaseFragment
     implements ListView<T> {
+
   private final BaseAdapter<VH, T> adapter = createAdapter();
 
   @Override
