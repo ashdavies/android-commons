@@ -2,10 +2,10 @@ package io.ashdavies.commons.presenter;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import io.ashdavies.commons.view.BaseView;
+import io.ashdavies.commons.view.AbstractView;
 import java.lang.ref.WeakReference;
 
-public abstract class BaseViewPresenter<View extends BaseView> implements ViewPresenter<View> {
+public abstract class BaseViewPresenter<View extends AbstractView> implements ViewPresenter<View> {
 
   private WeakReference<View> reference;
 

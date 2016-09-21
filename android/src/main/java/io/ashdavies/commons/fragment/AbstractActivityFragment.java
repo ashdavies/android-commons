@@ -1,9 +1,9 @@
 package io.ashdavies.commons.fragment;
 
 import android.content.Context;
-import io.ashdavies.commons.activity.BaseActivity;
+import io.ashdavies.commons.activity.AbstractActivity;
 
-public abstract class BaseActivityFragment<Activity extends BaseActivity> extends BaseFragment {
+public abstract class AbstractActivityFragment<Activity extends AbstractActivity> extends AbstractFragment {
 
   private Activity activity;
 

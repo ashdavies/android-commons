@@ -2,7 +2,7 @@ package io.ashdavies.commons.view;
 
 import android.content.Context;
 
-public interface BaseView {
+public interface AbstractView {
 
   Context getContext();
 

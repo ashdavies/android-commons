@@ -8,9 +8,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import io.ashdavies.commons.view.BaseView;
+import io.ashdavies.commons.view.AbstractView;
 
-public abstract class BaseActivity extends AppCompatActivity implements BaseView {
+public abstract class AbstractActivity extends AppCompatActivity implements AbstractView {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
   }
 
   @NonNull
-  protected BaseView getView() {
+  protected AbstractView getView() {
     return this;
   }
 

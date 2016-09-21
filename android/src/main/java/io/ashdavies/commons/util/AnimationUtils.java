@@ -23,9 +23,15 @@ public final class AnimationUtils {
     animateWidth(view, view.getMeasuredHeight());
   }
 
-  public static void animateWidth(View view, int height) {
+  public static void animateWidth(final View view, int height) {
     ValueAnimator animator = ValueAnimator.ofInt(view.getHeight(), height);
-    animator.addUpdateListener(value -> ViewUtils.setWidth(view, (int) value.getAnimatedValue()));
+    animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+      @Override
+      public void onAnimationUpdate(ValueAnimator animation) {
+        ViewUtils.setWidth(view, (int) animation.getAnimatedValue());
+      }
+    });
+
     animator.setInterpolator(new AccelerateDecelerateInterpolator());
     animator.setDuration(DEFAULT_DURATION);
 
@@ -41,9 +47,15 @@ public final class AnimationUtils {
     animateHeight(view, view.getMeasuredHeight());
   }
 
-  public static void animateHeight(View view, int height) {
+  public static void animateHeight(final View view, int height) {
     ValueAnimator animator = ValueAnimator.ofInt(view.getHeight(), height);
-    animator.addUpdateListener(value -> ViewUtils.setHeight(view, (int) value.getAnimatedValue()));
+    animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+      @Override
+      public void onAnimationUpdate(ValueAnimator animation) {
+        ViewUtils.setHeight(view, (int) animation.getAnimatedValue());
+      }
+    });
+
     animator.setInterpolator(new AccelerateDecelerateInterpolator());
     animator.setDuration(DEFAULT_DURATION);
 

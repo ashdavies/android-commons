@@ -8,8 +8,7 @@ import io.ashdavies.commons.adapter.BaseAdapter;
 import io.ashdavies.commons.view.ListView;
 import java.util.Collection;
 
-public abstract class RecyclerFragment<T, VH extends BaseAdapter.ViewHolder<T>> extends BaseFragment
-    implements ListView<T> {
+public abstract class RecyclerFragment<T, VH extends BaseAdapter.ViewHolder<T>> extends AbstractFragment implements ListView<T> {
 
   private final BaseAdapter<VH, T> adapter = createAdapter();
 

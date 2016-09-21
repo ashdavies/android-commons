@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public abstract class BaseToolbarActivity extends BaseActivity {
+public abstract class AbstractToolbarActivity extends AbstractActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
