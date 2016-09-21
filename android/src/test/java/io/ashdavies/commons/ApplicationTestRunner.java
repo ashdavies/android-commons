@@ -1,11 +1,9 @@
 package io.ashdavies.commons;
 
-import org.junit.runners.model.InitializationError;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
-
+import org.junit.runners.model.InitializationError;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.TestLifecycle;
 import org.robolectric.annotation.Config;
@@ -76,19 +74,21 @@ public class ApplicationTestRunner extends RobolectricGradleTestRunner {
   }
 
   private static FileFsFile getManifest(String flavor, String type) {
-    if (FileFsFile.from(BUILD_OUTPUT, "manifests").exists()) {
-      return FileFsFile.from(BUILD_OUTPUT, "manifests", "full", flavor, type, ANDROID_MANIFEST);
-    } else {
-      return FileFsFile.from(BUILD_OUTPUT, "bundles", flavor, type, ANDROID_MANIFEST);
+    FileFsFile manifest = FileFsFile.from(BUILD_OUTPUT, "manifests", "full", flavor, type, ANDROID_MANIFEST);
+    if (manifest.exists()) {
+      return manifest;
     }
+
+    return FileFsFile.from(BUILD_OUTPUT, "bundles", flavor, type, ANDROID_MANIFEST);
   }
 
   private static FileFsFile getResources(String flavor, String type) {
-    if (FileFsFile.from(BUILD_OUTPUT, "res", flavor, type).exists()) {
-      return FileFsFile.from(BUILD_OUTPUT, "res", flavor, type);
-    } else {
-      return FileFsFile.from(BUILD_OUTPUT, "res/merged", flavor, type);
+    FileFsFile resources = FileFsFile.from(BUILD_OUTPUT, "res", flavor, type);
+    if (resources.exists()) {
+      return resources;
     }
+
+    return FileFsFile.from(BUILD_OUTPUT, "res/merged", flavor, type);
   }
 
   private static FileFsFile getAssets(String flavor, String type) {
