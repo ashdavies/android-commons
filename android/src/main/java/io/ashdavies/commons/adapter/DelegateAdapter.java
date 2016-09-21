@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.ViewGroup;
 import java.util.List;
 
-public abstract class DelegateAdapter<VH extends BaseAdapter.ViewHolder<T>, T> extends BaseAdapter<VH, T> {
+public abstract class DelegateAdapter<VH extends AbstractAdapter.ViewHolder<T>, T> extends AbstractAdapter<VH, T> {
 
   private final AdapterDelegateManager<VH, List<? extends T>> delegates = new AdapterDelegateManager<>();
 

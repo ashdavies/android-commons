@@ -8,47 +8,47 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public abstract class BaseArrayAdapter<T> extends ArrayAdapter<T> {
+public abstract class AbstractArrayAdapter<T> extends ArrayAdapter<T> {
 
   private final LayoutInflater inflater;
   private final List<T> items;
 
-  public BaseArrayAdapter(Context context, int resource) {
+  public AbstractArrayAdapter(Context context, int resource) {
     super(context, resource);
 
     this.inflater = LayoutInflater.from(context);
     this.items = new ArrayList<>();
   }
 
-  public BaseArrayAdapter(Context context, int resource, int textViewResourceId) {
+  public AbstractArrayAdapter(Context context, int resource, int textViewResourceId) {
     super(context, resource, textViewResourceId);
 
     this.inflater = LayoutInflater.from(context);
     this.items = new ArrayList<>();
   }
 
-  public BaseArrayAdapter(Context context, int resource, T[] objects) {
+  public AbstractArrayAdapter(Context context, int resource, T[] objects) {
     super(context, resource, objects);
 
     this.inflater = LayoutInflater.from(context);
     this.items = Arrays.asList(objects);
   }
 
-  public BaseArrayAdapter(Context context, int resource, int textViewResourceId, T[] objects) {
+  public AbstractArrayAdapter(Context context, int resource, int textViewResourceId, T[] objects) {
     super(context, resource, textViewResourceId, objects);
 
     this.inflater = LayoutInflater.from(context);
     this.items = Arrays.asList(objects);
   }
 
-  public BaseArrayAdapter(Context context, int resource, List<T> objects) {
+  public AbstractArrayAdapter(Context context, int resource, List<T> objects) {
     super(context, resource, objects);
 
     this.inflater = LayoutInflater.from(context);
     this.items = objects;
   }
 
-  public BaseArrayAdapter(Context context, int resource, int textViewResourceId, List<T> objects) {
+  public AbstractArrayAdapter(Context context, int resource, int textViewResourceId, List<T> objects) {
     super(context, resource, textViewResourceId, objects);
 
     this.inflater = LayoutInflater.from(context);

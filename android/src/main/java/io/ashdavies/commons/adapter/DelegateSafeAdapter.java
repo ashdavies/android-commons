@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class DelegateSafeAdapter<VH extends BaseAdapter.ViewHolder<T>, T> extends DelegateAdapter<VH, T> {
+public abstract class DelegateSafeAdapter<VH extends AbstractAdapter.ViewHolder<T>, T> extends DelegateAdapter<VH, T> {
 
   public DelegateSafeAdapter(Context context, List<T> items) {
     super(context, items);

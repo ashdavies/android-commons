@@ -1,7 +1,9 @@
 package io.ashdavies.commons.adapter;
 
 import android.content.Context;
-
+import io.ashdavies.commons.ApplicationTestRunner;
+import java.util.Collections;
+import java.util.List;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -10,11 +12,6 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.robolectric.RuntimeEnvironment;
-
-import java.util.Collections;
-import java.util.List;
-
-import io.ashdavies.commons.ApplicationTestRunner;
 
 import static junit.framework.Assert.assertEquals;
 import static org.mockito.Matchers.anyListOf;
@@ -26,11 +23,12 @@ import static org.mockito.Mockito.when;
 
 @RunWith(ApplicationTestRunner.class)
 public class DelegateAdapterTest {
+
   private StubDelegateAdapter adapter;
 
   @Rule public MockitoRule mockito = MockitoJUnit.rule();
 
-  @Mock AdapterDelegate<BaseAdapter.ViewHolder<String>, List<? extends String>> delegate;
+  @Mock AdapterDelegate<AbstractAdapter.ViewHolder<String>, List<? extends String>> delegate;
 
   @Before
   public void setUp() {
@@ -57,7 +55,7 @@ public class DelegateAdapterTest {
     when(delegate.isForViewType(anyListOf(String.class), eq(0))).thenReturn(true);
 
     //noinspection unchecked
-    BaseAdapter.ViewHolder<String> holder = mock(BaseAdapter.ViewHolder.class);
+    AbstractAdapter.ViewHolder<String> holder = mock(AbstractAdapter.ViewHolder.class);
 
     adapter.addDelegate(delegate);
     adapter.onBindViewHolder(holder, 0);
@@ -83,7 +81,8 @@ public class DelegateAdapterTest {
   }
 
   public static class StubDelegateAdapter
-      extends DelegateAdapter<BaseAdapter.ViewHolder<String>, String> {
+      extends DelegateAdapter<AbstractAdapter.ViewHolder<String>, String> {
+
     public StubDelegateAdapter(Context context, List<String> items) {
       super(context, items);
     }

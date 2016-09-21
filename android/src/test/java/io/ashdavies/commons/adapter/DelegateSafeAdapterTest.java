@@ -1,7 +1,10 @@
 package io.ashdavies.commons.adapter;
 
 import android.content.Context;
-
+import io.ashdavies.commons.ApplicationTestRunner;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -11,12 +14,6 @@ import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.robolectric.RuntimeEnvironment;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import io.ashdavies.commons.ApplicationTestRunner;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyListOf;
@@ -24,11 +21,12 @@ import static org.mockito.Mockito.when;
 
 @RunWith(ApplicationTestRunner.class)
 public class DelegateSafeAdapterTest {
+
   private StubDelegateAdapter adapter;
 
   @Rule public MockitoRule mockito = MockitoJUnit.rule();
 
-  @Mock AdapterDelegate<BaseAdapter.ViewHolder<String>, List<? extends String>> delegate;
+  @Mock AdapterDelegate<AbstractAdapter.ViewHolder<String>, List<? extends String>> delegate;
 
   @Before
   public void setUp() {
@@ -58,7 +56,8 @@ public class DelegateSafeAdapterTest {
   }
 
   public static class StubDelegateAdapter
-      extends DelegateSafeAdapter<BaseAdapter.ViewHolder<String>, String> {
+      extends DelegateSafeAdapter<AbstractAdapter.ViewHolder<String>, String> {
+
     public StubDelegateAdapter(Context context) {
       super(context, new ArrayList<String>());
     }

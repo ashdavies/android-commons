@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import io.ashdavies.commons.view.AbstractView;
 import java.lang.ref.WeakReference;
 
-public abstract class BaseViewPresenter<View extends AbstractView> implements ViewPresenter<View> {
+public abstract class AbstractViewPresenter<View extends AbstractView> implements ViewPresenter<View> {
 
   private WeakReference<View> reference;
 

@@ -9,20 +9,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public abstract class BaseAdapter<VH extends BaseAdapter.ViewHolder<T>, T> extends RecyclerView.Adapter<VH> implements ListAdapter<T> {
+public abstract class AbstractAdapter<VH extends AbstractAdapter.ViewHolder<T>, T> extends RecyclerView.Adapter<VH> implements ListAdapter<T> {
 
   private final LayoutInflater inflater;
   private final List<T> items;
 
-  public BaseAdapter(Context context) {
+  public AbstractAdapter(Context context) {
     this(context, new ArrayList<T>());
   }
 
-  public BaseAdapter(Context context, List<T> items) {
+  public AbstractAdapter(Context context, List<T> items) {
     this(LayoutInflater.from(context), items);
   }
 
-  public BaseAdapter(LayoutInflater inflater, List<T> items) {
+  public AbstractAdapter(LayoutInflater inflater, List<T> items) {
     this.inflater = inflater;
     this.items = items;
   }

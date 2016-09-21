@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import io.ashdavies.commons.adapter.BaseAdapter;
+import io.ashdavies.commons.adapter.AbstractAdapter;
 import io.ashdavies.commons.view.ListView;
 import java.util.Collection;
 
-public abstract class RecyclerFragment<T, VH extends BaseAdapter.ViewHolder<T>> extends AbstractFragment implements ListView<T> {
+public abstract class RecyclerFragment<T, VH extends AbstractAdapter.ViewHolder<T>> extends AbstractFragment implements ListView<T> {
 
-  private final BaseAdapter<VH, T> adapter = createAdapter();
+  private final AbstractAdapter<VH, T> adapter = createAdapter();
 
   @Override
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public abstract class RecyclerFragment<T, VH extends BaseAdapter.ViewHolder<T>> 
 
   protected abstract RecyclerView.LayoutManager getLayoutManager();
 
-  protected abstract BaseAdapter<VH, T> createAdapter();
+  protected abstract AbstractAdapter<VH, T> createAdapter();
 
   protected abstract RecyclerView getRecyclerView();
 
