@@ -1,12 +1,19 @@
-package io.ashdavies.commons.rx;
+package io.ashdavies.rx;
 
-import rx.Observer;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
-public class NonCompletingObserver<T> implements Observer<T> {
+public abstract class NonCompletingObserver<T> implements Observer<T> {
+
   private final Observer<T> observer;
 
   public NonCompletingObserver(Observer<T> observer) {
     this.observer = observer;
+  }
+
+  @Override
+  public void onSubscribe(Disposable disposable) {
+    observer.onSubscribe(disposable);
   }
 
   @Override
@@ -20,7 +27,7 @@ public class NonCompletingObserver<T> implements Observer<T> {
   }
 
   @Override
-  public void onCompleted() {
+  public void onComplete() {
     // Do nothing
   }
 }

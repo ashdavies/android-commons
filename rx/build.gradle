@@ -1,0 +1,30 @@
+repositories {
+  jcenter()
+}
+
+apply plugin: 'java'
+apply plugin: 'bintray-release'
+apply plugin: 'jacoco'
+
+dependencies {
+  compile 'com.google.code.findbugs:jsr305:' + versions.jsr305
+  compile 'io.reactivex.rxjava2:rxjava:' + versions.rxJava2
+
+  testCompile 'junit:junit:' + versions.jUnit
+  testCompile 'org.mockito:mockito-core:' + versions.mockito
+}
+
+jacoco {
+  toolVersion = '0.7.5.201505241946'
+}
+
+publish {
+  userOrg = 'ashdavies'
+  groupId = 'io.ashdavies'
+  artifactId = 'commons-rx'
+
+  version = project.version
+  description = 'RxJava Commons'
+  website = 'https://github.com/ashdavies/android-commons'
+}
+

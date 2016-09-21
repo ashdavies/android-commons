@@ -23,6 +23,7 @@ before_script:
 
 script:
     - ./gradlew clean test jacocoTestReport build
+    - ./gradlew rx:bintrayUpload -PbintrayUser=$BINTRAY_USER -PbintrayKey=$BINTRAY_KEY -PdryRun=false
     - ./gradlew java:bintrayUpload -PbintrayUser=$BINTRAY_USER -PbintrayKey=$BINTRAY_KEY -PdryRun=false
     - ./gradlew android:bintrayUpload -PbintrayUser=$BINTRAY_USER -PbintrayKey=$BINTRAY_KEY -PdryRun=false
 
