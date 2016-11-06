@@ -61,6 +61,7 @@ android {
 
 dependencies {
   compile project(':java')
+  compile project(':rx')
 
   compile 'com.android.support:appcompat-v7:' + versions.androidSupportV7
   compile 'com.android.support:cardview-v7:' + versions.androidSupportV7

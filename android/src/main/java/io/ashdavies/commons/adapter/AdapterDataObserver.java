@@ -1,24 +1,24 @@
 package io.ashdavies.commons.adapter;
 
 import android.support.v7.widget.RecyclerView;
-import rx.Observable;
-import rx.subjects.PublishSubject;
+import io.reactivex.Flowable;
+import io.reactivex.processors.PublishProcessor;
 
 public final class AdapterDataObserver extends RecyclerView.AdapterDataObserver {
 
-  private final PublishSubject<AdapterEvent> subject;
+  private final PublishProcessor<AdapterEvent> subject;
 
   private AdapterDataObserver() {
-    this.subject = PublishSubject.create();
+    this.subject = PublishProcessor.create();
   }
 
-  public static Observable<AdapterEvent> observe(RecyclerView.Adapter adapter) {
+  public static Flowable<AdapterEvent> observe(RecyclerView.Adapter adapter) {
     AdapterDataObserver observer = new AdapterDataObserver();
     adapter.registerAdapterDataObserver(observer);
     return observer.getStream();
   }
 
-  private PublishSubject<AdapterEvent> getStream() {
+  private Flowable<AdapterEvent> getStream() {
     return subject;
   }
 
@@ -29,40 +29,27 @@ public final class AdapterDataObserver extends RecyclerView.AdapterDataObserver 
 
   @Override
   public void onItemRangeChanged(int positionStart, int itemCount) {
-    subject.onNext(
-        new AdapterEvent(
-            AdapterEvent.Type.RANGE_CHANGED, new AdapterEvent.Range(positionStart, itemCount)));
+    subject.onNext(new AdapterEvent(AdapterEvent.Type.RANGE_CHANGED, new AdapterEvent.Range(positionStart, itemCount)));
   }
 
   @Override
   public void onItemRangeChanged(int positionStart, int itemCount, Object payload) {
-    subject.onNext(
-        new AdapterEvent(
-            AdapterEvent.Type.RANGE_CHANGED,
-            new AdapterEvent.Range(positionStart, itemCount),
-            payload));
+    subject.onNext(new AdapterEvent(AdapterEvent.Type.RANGE_CHANGED, new AdapterEvent.Range(positionStart, itemCount), payload));
   }
 
   @Override
   public void onItemRangeInserted(int positionStart, int itemCount) {
-    subject.onNext(
-        new AdapterEvent(
-            AdapterEvent.Type.RANGE_INSERTED, new AdapterEvent.Range(positionStart, itemCount)));
+    subject.onNext(new AdapterEvent(AdapterEvent.Type.RANGE_INSERTED, new AdapterEvent.Range(positionStart, itemCount)));
   }
 
   @Override
   public void onItemRangeRemoved(int positionStart, int itemCount) {
-    subject.onNext(
-        new AdapterEvent(
-            AdapterEvent.Type.RANGE_REMOVED, new AdapterEvent.Range(positionStart, itemCount)));
+    subject.onNext(new AdapterEvent(AdapterEvent.Type.RANGE_REMOVED, new AdapterEvent.Range(positionStart, itemCount)));
   }
 
   @Override
   public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
-    subject.onNext(
-        new AdapterEvent(
-            AdapterEvent.Type.RANGE_MOVED,
-            new AdapterEvent.Range(fromPosition, toPosition, itemCount)));
+    subject.onNext(new AdapterEvent(AdapterEvent.Type.RANGE_MOVED, new AdapterEvent.Range(fromPosition, toPosition, itemCount)));
   }
 
   public static class AdapterEvent {
