@@ -11,19 +11,22 @@ buildscript {
 }
 
 allprojects {
-  version = '0.5.4'
+  version = '0.5.5'
 }
 
 ext {
   versions = [
-    androidSupportV7 : '25.0.0',
-    gson             : '2.7',
-    jsr305           : '3.0.1',
-    okIo             : '1.6.0',
-    rxJava2          : '2.0.0-RC2',
 
-    jUnit            : '4.12',
-    mockito          : '1.10.19',
-    robolectric      : '3.0'
+      androidSupportV7: '25.0.0',
+      gson            : '2.7',
+      inject          : '1',
+      jsr305          : '3.0.1',
+      okIo            : '1.6.0',
+      rxJava2         : '2.0.0-RC2',
+
+      jUnit           : '4.12',
+      mockito         : '1.10.19',
+      robolectric     : '3.0'
+
   ]
 }

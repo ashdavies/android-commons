@@ -12,6 +12,8 @@ dependencies {
 
   compile 'com.squareup.okio:okio:' + versions.okIo
 
+  compile 'javax.inject:javax.inject:' + versions.inject
+
   testCompile 'junit:junit:' + versions.jUnit
   testCompile 'org.mockito:mockito-core:' + versions.mockito
 }
