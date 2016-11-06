@@ -12,8 +12,7 @@ public final class AdapterDelegateManager<VH, T> {
     return addDelegate(delegate, false);
   }
 
-  public AdapterDelegateManager<VH, T> addDelegate(
-      @NonNull AdapterDelegate<VH, T> delegate, boolean replace) {
+  public AdapterDelegateManager<VH, T> addDelegate(@NonNull AdapterDelegate<VH, T> delegate, boolean replace) {
     int viewType = delegate.getItemViewType();
 
     if (!replace && delegates.get(viewType) != null) {

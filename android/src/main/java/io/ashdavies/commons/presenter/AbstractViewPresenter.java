@@ -1,11 +1,13 @@
 package io.ashdavies.commons.presenter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import io.ashdavies.commons.Preconditions;
 import io.ashdavies.commons.view.AbstractView;
 import java.lang.ref.WeakReference;
 
-public abstract class AbstractViewPresenter<View extends AbstractView> implements ViewPresenter<View> {
+public abstract class AbstractViewPresenter<View extends AbstractView> implements AbstractView, ViewPresenter<View> {
 
   private WeakReference<View> reference;
 
@@ -41,10 +43,38 @@ public abstract class AbstractViewPresenter<View extends AbstractView> implement
   }
 
   @Override
-  public void onError(@NonNull Throwable throwable) {
-    View view = getView();
-    if (view != null) {
-      view.onError(throwable);
-    }
+  public Context getContext() {
+    return Preconditions.notNull(getView(), "View not attached").getContext();
+  }
+
+  @Override
+  public void showProgress() {
+    Preconditions.require(getView(), new Preconditions.Action<View>() {
+      @Override
+      public void run(View view) {
+        view.showProgress();
+      }
+    });
+  }
+
+  @Override
+  public void hideProgress() {
+    Preconditions.require(getView(), new Preconditions.Action<View>() {
+      @Override
+      public void run(View view) {
+        view.hideProgress();
+      }
+    });
+  }
+
+  @Override
+  public void onError(@NonNull final Throwable throwable) {
+    Preconditions.require(getView(), new Preconditions.Action<View>() {
+      @Override
+      public void run(View view) {
+        view.onError(throwable);
+        view.hideProgress();
+      }
+    });
   }
 }

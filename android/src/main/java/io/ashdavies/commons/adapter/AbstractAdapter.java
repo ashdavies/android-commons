@@ -7,6 +7,8 @@ import android.view.View;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public abstract class AbstractAdapter<VH extends AbstractAdapter.ViewHolder<T>, T> extends RecyclerView.Adapter<VH> implements ListAdapter<T> {
@@ -73,6 +75,11 @@ public abstract class AbstractAdapter<VH extends AbstractAdapter.ViewHolder<T>, 
   public void removeItem(int position) {
     items.remove(position);
     notifyItemRemoved(position);
+  }
+
+  public void sort(Comparator<T> comparator) {
+    Collections.sort(items, comparator);
+    notifyDataSetChanged();
   }
 
   protected LayoutInflater getInflater() {

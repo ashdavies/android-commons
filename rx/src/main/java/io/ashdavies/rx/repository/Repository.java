@@ -1,9 +1,21 @@
 package io.ashdavies.rx.repository;
 
+import io.reactivex.Completable;
 import io.reactivex.Flowable;
-import java.util.Collection;
 
-public interface Repository<T> {
+public interface Repository<T, Id> {
 
-  Flowable<Collection<T>> get();
+  Flowable<T> get(Id id) throws IndexNotFoundException;
+
+  Flowable<T> getAll();
+
+  Completable put(T t, Resolver<T, Id> resolver);
+
+  interface Resolver<T, Id> {
+
+    Id resolve(T t);
+  }
+
+  public class IndexNotFoundException extends RuntimeException {
+  }
 }

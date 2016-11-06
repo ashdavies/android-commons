@@ -28,3 +28,6 @@ publish {
   website = 'https://github.com/ashdavies/android-commons'
 }
 
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+

@@ -8,8 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import io.ashdavies.commons.factories.InstanceFactory;
 
-public abstract class AbstractFragment extends Fragment {
+public abstract class AbstractFragment extends Fragment implements InstanceFactory<AbstractFragment> {
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

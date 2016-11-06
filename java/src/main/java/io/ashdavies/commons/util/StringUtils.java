@@ -78,4 +78,21 @@ public final class StringUtils {
 
     return join(words, SPACE);
   }
+
+  public static String toString(Object... args) {
+    if (args == null || args.length == 0) {
+      return EMPTY;
+    }
+
+    StringBuilder builder = new StringBuilder();
+
+    for (int i = 0; i < args.length; i++) {
+      builder.append(args[i]);
+      if (i < args.length - 1) {
+        builder.append(" : ");
+      }
+    }
+
+    return builder.toString();
+  }
 }

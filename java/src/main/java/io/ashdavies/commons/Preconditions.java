@@ -53,8 +53,23 @@ public final class Preconditions {
     return map;
   }
 
-  public static <T> void verify(@Nullable T value, Assertion<T> invoker, String message) {
-    verify(invoker.of(notNull(value, message)), message);
+  public static <T> void require(@Nullable T value, Action<T> action) {
+    require(value, new Assertion<T>() {
+      @Override
+      public boolean of(T value) {
+        return value != null;
+      }
+    }, action);
+  }
+
+  public static <T> void require(@Nullable T value, Assertion<T> assertion, Action<T> action) {
+    if (assertion.of(value)) {
+      action.run(value);
+    }
+  }
+
+  public static <T> void verify(@Nullable T value, Assertion<T> assertion, String message) {
+    verify(assertion.of(notNull(value, message)), message);
   }
 
   public static void verify(boolean assertion, String message) {
@@ -77,6 +92,11 @@ public final class Preconditions {
     }
 
     return value;
+  }
+
+  public interface Action<T> {
+
+    void run(T value);
   }
 
   public interface Assertion<T> {

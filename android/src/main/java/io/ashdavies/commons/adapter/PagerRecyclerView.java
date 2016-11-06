@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
+import io.ashdavies.commons.util.ClassUtils;
 
 public class PagerRecyclerView extends RecyclerView {
 
@@ -23,10 +24,7 @@ public class PagerRecyclerView extends RecyclerView {
 
   @Override
   public boolean fling(int velocityX, int velocityY) {
-    LinearLayoutManager linearLayoutManager = (LinearLayoutManager) getLayoutManager();
-    if (linearLayoutManager == null) {
-      throw new IllegalStateException("Cannot use PagerRecyclerView without LinearLayoutManager");
-    }
+    LinearLayoutManager linearLayoutManager = ClassUtils.cast(getLayoutManager());
 
     int firstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
     int lastVisibleItemPosition = linearLayoutManager.findLastVisibleItemPosition();

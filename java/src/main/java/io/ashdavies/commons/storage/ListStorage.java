@@ -26,7 +26,7 @@ public class ListStorage<T> implements Storage<Integer, T> {
   }
 
   @Override
-  public void set(Integer index, T t) {
-    list.set(index, t);
+  public void put(T t, Resolver<Integer, T> resolver) {
+    list.set(resolver.resolve(t), t);
   }
 }

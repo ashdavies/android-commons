@@ -30,7 +30,7 @@ public class MapStorage<Id, T> implements Storage<Id, T> {
   }
 
   @Override
-  public void set(Id id, T t) {
-    storage.put(id, t);
+  public void put(T t, Resolver<Id, T> resolver) {
+    storage.put(resolver.resolve(t), t);
   }
 }
