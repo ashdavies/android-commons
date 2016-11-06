@@ -1,5 +1,5 @@
 repositories {
-    jcenter()
+  jcenter()
 }
 
 apply plugin: 'java'
@@ -7,26 +7,28 @@ apply plugin: 'bintray-release'
 apply plugin: 'jacoco'
 
 dependencies {
-    compile 'com.google.code.gson:gson:' + versions.gson
-    compile 'com.google.code.findbugs:jsr305:' + versions.jsr305
+  compile 'com.google.code.gson:gson:' + versions.gson
+  compile 'com.google.code.findbugs:jsr305:' + versions.jsr305
 
-    compile 'com.squareup.okio:okio:' + versions.okIo
+  compile 'com.squareup.okio:okio:' + versions.okIo
 
-    testCompile 'junit:junit:' + versions.jUnit
-    testCompile 'org.mockito:mockito-core:' + versions.mockito
+  testCompile 'junit:junit:' + versions.jUnit
+  testCompile 'org.mockito:mockito-core:' + versions.mockito
 }
 
 jacoco {
-    toolVersion = '0.7.5.201505241946'
+  toolVersion = '0.7.5.201505241946'
 }
 
 publish {
-    userOrg = 'ashdavies'
-    groupId = 'io.ashdavies'
-    artifactId = 'commons-java'
+  userOrg = 'ashdavies'
+  groupId = 'io.ashdavies'
+  artifactId = 'commons-java'
 
-    version = project.version
-    description = 'Android Commons'
-    website = 'https://github.com/ashdavies/android-commons'
+  version = project.version
+  description = 'Android Commons'
+  website = 'https://github.com/ashdavies/android-commons'
 }
 
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7

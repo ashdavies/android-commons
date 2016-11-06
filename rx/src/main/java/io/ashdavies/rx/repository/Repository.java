@@ -1,9 +1,9 @@
 package io.ashdavies.rx.repository;
 
-import io.reactivex.Observable;
+import io.reactivex.Flowable;
 import java.util.Collection;
 
-public interface Repository<Entity> {
+public interface Repository<T> {
 
-  Observable<Collection<Entity>> get();
+  Flowable<Collection<T>> get();
 }

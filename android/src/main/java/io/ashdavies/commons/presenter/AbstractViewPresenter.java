@@ -15,8 +15,9 @@ public abstract class AbstractViewPresenter<View extends AbstractView> implement
     onViewAttached(reference.get());
   }
 
+  @SuppressWarnings("WeakerAccess")
   protected void onViewAttached(@NonNull View view) {
-    // Non operation implementation
+    /* no op */
   }
 
   @Nullable
@@ -31,6 +32,12 @@ public abstract class AbstractViewPresenter<View extends AbstractView> implement
   @Override
   public void onDetach() {
     reference.clear();
+    onViewDetached();
+  }
+
+  @SuppressWarnings("WeakerAccess")
+  protected void onViewDetached() {
+    /* no op */
   }
 
   @Override
