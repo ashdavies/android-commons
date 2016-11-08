@@ -40,14 +40,6 @@ android {
     versionName project.version
   }
 
-  productFlavors {
-    pre21 {}
-
-    post21 {
-      minSdkVersion 21
-    }
-  }
-
   dexOptions {
     javaMaxHeapSize "4g"
   }
