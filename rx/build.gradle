@@ -7,11 +7,12 @@ apply plugin: 'bintray-release'
 apply plugin: 'jacoco'
 
 dependencies {
-  compile 'com.google.code.findbugs:jsr305:' + versions.jsr305
-  compile 'io.reactivex.rxjava2:rxjava:' + versions.rxJava2
+  compile libraries.annotations.jsr305
+  compile libraries.rx.java
 
-  testCompile 'junit:junit:' + versions.jUnit
-  testCompile 'org.mockito:mockito-core:' + versions.mockito
+  testCompile libraries.jUnit
+  testCompile libraries.truth
+  testCompile libraries.mockito
 }
 
 jacoco {
@@ -28,6 +29,6 @@ publish {
   website = 'https://github.com/ashdavies/android-commons'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = sourceCompatibilityVersion
+targetCompatibility = targetCompatibilityVersion
 
