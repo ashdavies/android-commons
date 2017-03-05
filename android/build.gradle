@@ -43,6 +43,10 @@ android {
   lintOptions {
     disable 'WeakerAccess'
   }
+
+  /*testOptions {
+    unitTests.returnDefaultValues = true
+  }*/
 }
 
 dependencies {

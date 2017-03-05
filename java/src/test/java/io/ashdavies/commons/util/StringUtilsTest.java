@@ -1,49 +1,45 @@
 package io.ashdavies.commons.util;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.google.common.truth.Truth.assertThat;
 
 @RunWith(MockitoJUnitRunner.class)
 public class StringUtilsTest {
 
   @Test
-  public void assertJoinNull() {
-    Assert.assertEquals(null, StringUtils.join(null, ",", 0, 0));
+  public void shouldJoinNull() {
+    assertThat(StringUtils.join(null, ",", 0, 0)).isNull();
   }
 
   @Test
-  public void assertJoinNullEmpty() {
-    Assert.assertEquals(StringUtils.EMPTY, StringUtils.join(new String[] {}, ",", 0, 0));
+  public void shouldJoinNullEmpty() {
+    assertThat(StringUtils.join(new String[] {}, ",", 0, 0)).isEqualTo(StringUtils.EMPTY);
   }
 
   @Test
-  public void assertPartialJoin() {
-    String[] array = new String[] {"a", "b", "c", "d", "e"};
-    Assert.assertEquals("a,b,c", StringUtils.join(array, ",", 0, 3));
+  public void shouldPartialJoin() {
+    assertThat(StringUtils.join(new String[] { "a", "b", "c", "d", "e" }, ",", 0, 3)).isEqualTo("a,b,c");
   }
 
   @Test
-  public void assertCompleteJoin() {
-    String[] array = new String[] {"a", "b", "c", "d", "e"};
-    Assert.assertEquals("a,b,c,d,e", StringUtils.join(array, ","));
+  public void shouldCompleteJoin() {
+    assertThat(StringUtils.join(new String[] { "a", "b", "c", "d", "e" }, ",")).isEqualTo("a,b,c,d,e");
   }
 
   @Test
-  public void assertSplitEqual() {
+  public void shouldSplitEqual() {
     for (String item : StringUtils.split("123456789", 3)) {
-      assertEquals(3, item.length());
+      assertThat(item.length()).isEqualTo(3);
     }
   }
 
   @Test
-  public void assertSplitUnequal() {
+  public void shouldSplitUnequal() {
     for (String item : StringUtils.split("qwertzuiop", 4)) {
-      assertTrue(item.length() <= 4);
+      assertThat(item.length()).isLessThan(5);
     }
   }
 }

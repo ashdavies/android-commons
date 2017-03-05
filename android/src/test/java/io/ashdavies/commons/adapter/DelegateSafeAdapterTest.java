@@ -1,64 +1,62 @@
 package io.ashdavies.commons.adapter;
 
 import android.content.Context;
-import io.ashdavies.commons.ApplicationTestRunner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
-import org.robolectric.RuntimeEnvironment;
+import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.junit.Assert.assertEquals;
+import static com.google.common.truth.Truth.assertThat;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyListOf;
-import static org.mockito.Mockito.when;
 
-@RunWith(ApplicationTestRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 public class DelegateSafeAdapterTest {
+
+  private static final String STEVE = "Steve";
+  private static final String FRANCIS = "Francis";
+  private static final String DAVE = "Dave";
 
   private StubDelegateAdapter adapter;
 
-  @Rule public MockitoRule mockito = MockitoJUnit.rule();
-
   @Mock AdapterDelegate<AbstractAdapter.ViewHolder<String>, List<? extends String>> delegate;
+  @Mock Context context;
 
   @Before
   public void setUp() {
-    adapter = new StubDelegateAdapter(RuntimeEnvironment.application);
+    adapter = new StubDelegateAdapter(context);
   }
 
   @Test
-  public void assertAddItemFilterRemoved() {
-    adapter.addItem(0, "Steve");
-    assertEquals(0, adapter.getItemCount());
+  public void shouldAddItemFilterRemoved() {
+    adapter.addItem(0, STEVE);
+    assertThat(adapter.getItemCount()).isEqualTo(0);
   }
 
   @Test
-  public void assertAddItemsFilterRemoved() {
-    adapter.addItems(Collections.singletonList("Francis"));
-    assertEquals(0, adapter.getItemCount());
+  public void shouldAddItemsFilterRemoved() {
+    adapter.addItems(Collections.singletonList(FRANCIS));
+    assertThat(adapter.getItemCount()).isEqualTo(0);
   }
 
   @Test
-  public void assertValidFilterAccepted() {
-    when(delegate.isForViewType(anyListOf(String.class), anyInt())).thenReturn(true);
+  public void shouldValidFilterAccepted() {
+    given(delegate.isForViewType(anyListOf(String.class), anyInt())).willReturn(true);
 
     adapter.addDelegate(delegate);
-    adapter.addItem(0, "Dave");
+    adapter.addItem(0, DAVE);
 
-    assertEquals(1, adapter.getItemCount());
+    assertThat(adapter.getItemCount()).isEqualTo(1);
   }
 
-  public static class StubDelegateAdapter
-      extends DelegateSafeAdapter<AbstractAdapter.ViewHolder<String>, String> {
+  public static class StubDelegateAdapter extends DelegateSafeAdapter<AbstractAdapter.ViewHolder<String>, String> {
 
-    public StubDelegateAdapter(Context context) {
+    StubDelegateAdapter(Context context) {
       super(context, new ArrayList<String>());
     }
   }

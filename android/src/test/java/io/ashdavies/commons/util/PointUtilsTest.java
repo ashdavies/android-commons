@@ -1,52 +1,39 @@
 package io.ashdavies.commons.util;
 
 import android.graphics.Point;
-
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import java.lang.reflect.Constructor;
+import static com.google.common.truth.Truth.assertThat;
 
-import io.ashdavies.commons.ApplicationTestRunner;
-
-import static junit.framework.Assert.assertEquals;
-
-@RunWith(ApplicationTestRunner.class)
 public class PointUtilsTest {
 
   @Test
-  public void assertPrivateConstructor() {
-    Constructor[] constructors = PointUtils.class.getConstructors();
-    assertEquals(0, constructors.length);
+  public void shouldHavePrivateConstructor() {
+    assertThat(PointUtils.class.getConstructors().length).isEqualTo(0);
   }
 
   @Test
-  public void assertCombine() {
+  public void shouldCombine() {
     Point a = new Point(5, 10);
     Point b = new Point(10, 15);
 
-    Point combined = PointUtils.add(a, b);
-    assertEquals(15, combined.x);
-    assertEquals(25, combined.y);
+    assertThat(PointUtils.add(a, b)).isEqualTo(new Point(15, 25));
   }
 
   @Test
-  public void assertSubtract() {
+  public void shouldSubtract() {
     Point a = new Point(5, 10);
     Point b = new Point(10, 15);
 
-    Point subtracted = PointUtils.subtract(a, b);
-    assertEquals(-5, subtracted.x);
-    assertEquals(-5, subtracted.y);
+    assertThat(PointUtils.subtract(a, b)).isEqualTo(new Point(-5, -5));
   }
 
   @Test
-  public void assertOffset() {
+  public void shouldOffset() {
     double radians = Math.toRadians(90);
     int x = (int) Math.cos(radians);
     int y = (int) Math.sin(radians);
 
-    Point expected = new Point(5 * x, 5 * y);
-    assertEquals(expected, PointUtils.offset(5, 90));
+    assertThat(PointUtils.offset(5, 90)).isEqualTo(new Point(5 * x, 5 * y));
   }
 }

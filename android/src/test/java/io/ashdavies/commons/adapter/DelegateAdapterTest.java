@@ -1,89 +1,88 @@
 package io.ashdavies.commons.adapter;
 
 import android.content.Context;
-import io.ashdavies.commons.ApplicationTestRunner;
 import java.util.Collections;
 import java.util.List;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
-import org.robolectric.RuntimeEnvironment;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static junit.framework.Assert.assertEquals;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 import static org.mockito.Matchers.anyListOf;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
-@RunWith(ApplicationTestRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 public class DelegateAdapterTest {
+
+  private static final String BOB = "Bob";
+  private static final String CHRIS = "Chris";
 
   private StubDelegateAdapter adapter;
 
-  @Rule public MockitoRule mockito = MockitoJUnit.rule();
-
   @Mock AdapterDelegate<AbstractAdapter.ViewHolder<String>, List<? extends String>> delegate;
+  @Mock Context context;
 
   @Before
   public void setUp() {
-    adapter =
-        new StubDelegateAdapter(RuntimeEnvironment.application, Collections.singletonList("Bob"));
+    adapter = new StubDelegateAdapter(context, Collections.singletonList(BOB));
   }
 
   @Test
-  public void assertDoesNotHaveDelegate() {
-    assertEquals(false, adapter.hasDelegate(Collections.singletonList("Chris"), 0));
+  public void shouldDoesNotHaveDelegate() throws Exception {
+    assertEquals(false, adapter.hasDelegate(Collections.singletonList(CHRIS), 0));
   }
 
   @Test
-  public void assertHasDelegate() {
-    when(delegate.isForViewType(anyListOf(String.class), eq(0))).thenReturn(true);
+  public void shouldHasDelegate() throws Exception {
+    given(delegate.isForViewType(anyListOf(String.class), eq(0))).willReturn(true);
 
     adapter.addDelegate(delegate);
-    assertEquals(true, adapter.hasDelegate(anyListOf(String.class), eq(0)));
-    verify(delegate, times(1)).isForViewType(anyListOf(String.class), eq(0));
+    adapter.hasDelegate(anyListOf(String.class), 0);
+
+    then(delegate).should().isForViewType(anyListOf(String.class), eq(0));
   }
 
   @Test
-  public void assertOnBindViewHolder() {
-    when(delegate.isForViewType(anyListOf(String.class), eq(0))).thenReturn(true);
+  public void shouldOnBindViewHolder() throws Exception {
+    given(delegate.isForViewType(anyListOf(String.class), eq(0))).willReturn(true);
 
     //noinspection unchecked
     AbstractAdapter.ViewHolder<String> holder = mock(AbstractAdapter.ViewHolder.class);
 
     adapter.addDelegate(delegate);
     adapter.onBindViewHolder(holder, 0);
-    verify(delegate, times(1)).isForViewType(anyListOf(String.class), eq(0));
-    verify(delegate, times(1)).onBindViewHolder(anyListOf(String.class), eq(0), eq(holder));
+
+    then(delegate).should().isForViewType(anyListOf(String.class), eq(0));
+    then(delegate).should().onBindViewHolder(anyListOf(String.class), eq(0), eq(holder));
   }
 
   @Test
-  public void assertGetItemViewType() {
-    when(delegate.isForViewType(anyListOf(String.class), eq(0))).thenReturn(true);
-    when(delegate.getItemViewType()).thenReturn(1);
+  public void shouldGetItemViewType() throws Exception {
+    given(delegate.isForViewType(anyListOf(String.class), eq(0))).willReturn(true);
+    given(delegate.getItemViewType()).willReturn(1);
 
     adapter.addDelegate(delegate);
-    assertEquals(1, adapter.getItemViewType(0));
-    verify(delegate, times(1)).isForViewType(anyListOf(String.class), eq(0));
+    adapter.getItemViewType(0);
+
+    then(delegate).should().isForViewType(anyListOf(String.class), eq(0));
   }
 
   @Test
-  public void assertOnCreateViewHolder() {
+  public void shouldOnCreateViewHolder() throws Exception {
     adapter.addDelegate(delegate);
     adapter.onCreateViewHolder(null, 0);
-    verify(delegate).onCreateViewHolder(null);
+
+    then(delegate).should().onCreateViewHolder(null);
   }
 
-  public static class StubDelegateAdapter
-      extends DelegateAdapter<AbstractAdapter.ViewHolder<String>, String> {
+  public static class StubDelegateAdapter extends DelegateAdapter<AbstractAdapter.ViewHolder<String>, String> {
 
-    public StubDelegateAdapter(Context context, List<String> items) {
+    StubDelegateAdapter(Context context, List<String> items) {
       super(context, items);
     }
   }
