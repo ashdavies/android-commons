@@ -4,6 +4,7 @@ import io.reactivex.Completable;
 import io.reactivex.CompletableEmitter;
 import io.reactivex.CompletableOnSubscribe;
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +21,8 @@ public class ListRepository<T> implements Repository<T, Integer> {
   }
 
   @Override
-  public Flowable<T> get(Integer index) throws IndexOutOfBoundsException {
-    return Flowable.just(list.get(index));
+  public Single<T> get(Integer index) throws IndexOutOfBoundsException {
+    return Single.just(list.get(index));
   }
 
   @Override

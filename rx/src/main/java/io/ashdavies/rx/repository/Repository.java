@@ -2,10 +2,11 @@ package io.ashdavies.rx.repository;
 
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 
 public interface Repository<T, Id> {
 
-  Flowable<T> get(Id id) throws IndexNotFoundException;
+  Single<T> get(Id id) throws IndexNotFoundException;
 
   Flowable<T> getAll();
 
@@ -16,6 +17,6 @@ public interface Repository<T, Id> {
     Id resolve(T t);
   }
 
-  public class IndexNotFoundException extends RuntimeException {
+  class IndexNotFoundException extends RuntimeException {
   }
 }

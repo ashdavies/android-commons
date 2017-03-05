@@ -4,6 +4,7 @@ import io.reactivex.Completable;
 import io.reactivex.CompletableEmitter;
 import io.reactivex.CompletableOnSubscribe;
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,12 +21,12 @@ public class MapRepository<T, Id> implements Repository<T, Id> {
   }
 
   @Override
-  public Flowable<T> get(Id id) throws IndexNotFoundException {
+  public Single<T> get(Id id) throws IndexNotFoundException {
     if (!repository.containsKey(id)) {
       throw new IndexNotFoundException();
     }
 
-    return Flowable.just(repository.get(id));
+    return Single.just(repository.get(id));
   }
 
   @Override

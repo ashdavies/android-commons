@@ -2,6 +2,7 @@ package io.ashdavies.commons.util;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import java.io.Serializable;
 
 public final class BundleUtils {
 
@@ -9,11 +10,47 @@ public final class BundleUtils {
     throw new IllegalStateException("No instances");
   }
 
-  public static Bundle create(String key, String value) {
+  public static Bundle create(String key, boolean value) {
+    return builder().put(key, value).build();
+  }
+
+  public static Bundle create(String key, byte value) {
+    return builder().put(key, value).build();
+  }
+
+  public static Bundle create(String key, char value) {
+    return builder().put(key, value).build();
+  }
+
+  public static Bundle create(String key, short value) {
     return builder().put(key, value).build();
   }
 
   public static Bundle create(String key, int value) {
+    return builder().put(key, value).build();
+  }
+
+  public static Bundle create(String key, long value) {
+    return builder().put(key, value).build();
+  }
+
+  public static Bundle create(String key, float value) {
+    return builder().put(key, value).build();
+  }
+
+  public static Bundle create(String key, double value) {
+    return builder().put(key, value).build();
+  }
+
+  public static Bundle create(String key, String value) {
+    return builder().put(key, value).build();
+  }
+
+  public static Bundle create(String key, CharSequence value) {
+    return builder().put(key, value).build();
+  }
+
+  public static Bundle create(String key, Serializable value) {
     return builder().put(key, value).build();
   }
 
@@ -37,8 +74,28 @@ public final class BundleUtils {
       this.bundle = bundle;
     }
 
-    public Builder put(String key, String value) {
-      bundle.putString(key, value);
+    public Builder put(String key, boolean value) {
+      bundle.putBoolean(key, value);
+      return this;
+    }
+
+    public Builder put(String key, byte value) {
+      bundle.putByte(key, value);
+      return this;
+    }
+
+    public Builder put(String key, char value) {
+      bundle.putChar(key, value);
+      return this;
+    }
+
+    public Builder put(String key, short value) {
+      bundle.putShort(key, value);
+      return this;
+    }
+
+    public Builder put(String key, int value) {
+      bundle.putInt(key, value);
       return this;
     }
 
@@ -49,6 +106,26 @@ public final class BundleUtils {
 
     public Builder put(String key, float value) {
       bundle.putFloat(key, value);
+      return this;
+    }
+
+    public Builder put(String key, double value) {
+      bundle.putDouble(key, value);
+      return this;
+    }
+
+    public Builder put(String key, String value) {
+      bundle.putString(key, value);
+      return this;
+    }
+
+    public Builder put(String key, CharSequence value) {
+      bundle.putCharSequence(key, value);
+      return this;
+    }
+
+    public Builder put(String key, Serializable value) {
+      bundle.putSerializable(key, value);
       return this;
     }
 

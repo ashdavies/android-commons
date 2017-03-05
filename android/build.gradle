@@ -39,6 +39,10 @@ android {
     versionCode getVersionCode('build.properties')
     versionName getVersionName('build.properties')
   }
+
+  lintOptions {
+    disable 'WeakerAccess'
+  }
 }
 
 dependencies {
