@@ -38,11 +38,11 @@ public class DelegateAdapterTest {
   }
 
   @Test
-  public void shouldHasDelegate() throws Exception {
+  public void shouldHaveDelegate() throws Exception {
     given(delegate.isForViewType(anyListOf(String.class), eq(0))).willReturn(true);
 
     adapter.addDelegate(delegate);
-    adapter.hasDelegate(anyListOf(String.class), 0);
+    adapter.hasDelegate(anyListOf(String.class), eq(0));
 
     then(delegate).should().isForViewType(anyListOf(String.class), eq(0));
   }

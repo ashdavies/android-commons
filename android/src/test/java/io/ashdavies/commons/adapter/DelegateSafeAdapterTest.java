@@ -39,7 +39,7 @@ public class DelegateSafeAdapterTest {
   }
 
   @Test
-  public void shouldAddItemsFilterRemoved() {
+  public void shouldNotAddFilteredItem() {
     adapter.addItems(Collections.singletonList(FRANCIS));
     assertThat(adapter.getItemCount()).isEqualTo(0);
   }

@@ -27,7 +27,7 @@ publish {
   groupId = 'io.ashdavies'
   artifactId = 'commons-java'
 
-  version = project.version
+  version = gitVersionName
   description = 'Android Commons'
   website = 'https://github.com/ashdavies/android-commons'
 }

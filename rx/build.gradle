@@ -24,7 +24,7 @@ publish {
   groupId = 'io.ashdavies'
   artifactId = 'commons-rx'
 
-  version = project.version
+  version = gitVersionName
   description = 'RxJava Commons'
   website = 'https://github.com/ashdavies/android-commons'
 }

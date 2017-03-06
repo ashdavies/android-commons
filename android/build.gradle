@@ -36,17 +36,17 @@ android {
     minSdkVersion 16
     targetSdkVersion 25
 
-    versionCode getVersionCode('build.properties')
-    versionName getVersionName('build.properties')
+    versionCode gitVersionCode
+    versionName gitVersionName
   }
 
   lintOptions {
     disable 'WeakerAccess'
   }
 
-  /*testOptions {
+  testOptions {
     unitTests.returnDefaultValues = true
-  }*/
+  }
 }
 
 dependencies {
@@ -67,7 +67,7 @@ publish {
   groupId = 'io.ashdavies'
   artifactId = 'commons-android'
 
-  version = project.version
+  version = gitVersionName
   description = 'Android Commons'
   website = 'https://github.com/ashdavies/android-commons'
 }

@@ -55,7 +55,7 @@ public class HorizontalAdapterDelegateTest {
     then(view).should().getLayoutParams();
     then(view).should().setLayoutParams(captor.capture());
 
-    assertThat(captor.getValue().width).isEqualTo(PARENT_WIDTH * CHILD_WIDTH_SCALE);
+    assertThat(captor.getValue().width).isEqualTo((int) (PARENT_WIDTH * CHILD_WIDTH_SCALE));
   }
 
   @Test
