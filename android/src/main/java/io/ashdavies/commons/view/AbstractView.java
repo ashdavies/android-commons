@@ -1,14 +1,6 @@
 package io.ashdavies.commons.view;
 
-import android.content.Context;
-
-public interface AbstractView {
-
-  Context getContext();
-
-  void showProgress();
-
-  void hideProgress();
+public interface AbstractView extends ProgressView {
 
   void onError(Throwable throwable);
 }

@@ -19,7 +19,7 @@ ext {
       ],
 
       butterknife: '8.5.1',
-      dagger     : '2.9',
+      dagger     : '2.11-rc1',
       fab        : '1.10.1',
 
       google     : [
@@ -83,7 +83,12 @@ ext {
 
       dagger     : [
           core    : "com.google.dagger:dagger:$versions.dagger",
-          compiler: "com.google.dagger:dagger-compiler:$versions.dagger"
+          compiler: "com.google.dagger:dagger-compiler:$versions.dagger",
+
+          android : [
+              support  : "com.google.dagger:dagger-android-support:$versions.dagger",
+              processor: "com.google.dagger:dagger-android-processor:$versions.dagger"
+          ]
       ],
 
       fab        : "com.getbase:floatingactionbutton:$versions.fab",

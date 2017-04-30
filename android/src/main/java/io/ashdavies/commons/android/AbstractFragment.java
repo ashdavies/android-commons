@@ -1,20 +1,18 @@
-package io.ashdavies.commons.fragment;
+package io.ashdavies.commons.android;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import io.ashdavies.commons.factories.InstanceFactory;
+import dagger.android.support.DaggerFragment;
 
-public abstract class AbstractFragment extends Fragment implements InstanceFactory<AbstractFragment> {
+public abstract class AbstractFragment extends DaggerFragment {
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    super.onCreateView(inflater, container, savedInstanceState);
     return inflater.inflate(getLayoutId(), container, false);
   }
 

@@ -4,7 +4,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.2.2'
+    classpath 'com.android.tools.build:gradle:2.3.0'
     classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
   }
 }
@@ -49,6 +49,9 @@ dependencies {
 
   compile libraries.android.support.compat
   compile libraries.android.support.cards
+
+  compile libraries.dagger.core
+  compile libraries.dagger.android.support
 
   testCompile libraries.jUnit
   testCompile libraries.truth

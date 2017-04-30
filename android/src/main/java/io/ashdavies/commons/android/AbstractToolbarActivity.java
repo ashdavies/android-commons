@@ -1,4 +1,4 @@
-package io.ashdavies.commons.activity;
+package io.ashdavies.commons.android;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -16,18 +16,6 @@ public abstract class AbstractToolbarActivity extends AbstractActivity {
     onActionBarSet(getSupportActionBar());
   }
 
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case android.R.id.home:
-        finish();
-        return true;
-
-      default:
-        return super.onOptionsItemSelected(item);
-    }
-  }
-
   private Toolbar getToolbar() {
     return (Toolbar) findViewById(getToolbarId());
   }
@@ -35,7 +23,15 @@ public abstract class AbstractToolbarActivity extends AbstractActivity {
   @IdRes
   protected abstract int getToolbarId();
 
-  protected void onActionBarSet(ActionBar actionBar) {
-    // No implementation
+  abstract void onActionBarSet(ActionBar actionBar);
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    if (item.getItemId() == android.R.id.home) {
+      super.finish();
+      return true;
+    }
+
+    return super.onOptionsItemSelected(item);
   }
 }

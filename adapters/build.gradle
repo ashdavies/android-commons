@@ -4,7 +4,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.2.2'
+    classpath 'com.android.tools.build:gradle:2.3.0'
     classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
   }
 }
@@ -37,5 +37,12 @@ android {
 }
 
 dependencies {
+  compile project(':android')
+  compile project(':rx')
+
   compile libraries.android.support.recycler
+
+  testCompile libraries.jUnit
+  testCompile libraries.truth
+  testCompile libraries.mockito
 }

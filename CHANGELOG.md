@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 0.8.0 *(2017-04-30)*
+----------------------------
+
+ * Restructure abstract android elements
+ * Use Dagger for base level view elements
+ 
 Version 0.7.0 *(2017-04-30)*
 ----------------------------
 
