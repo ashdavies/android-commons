@@ -1,29 +1,21 @@
 ext {
-
   sourceCompatibilityVersion = JavaVersion.VERSION_1_7
   targetCompatibilityVersion = JavaVersion.VERSION_1_7
 
   versions = [
-
       annotations: [
-
           jsr305: '3.0.1',
           jsr330: '1'
-
       ],
 
       android    : [
-
           commons: '0.5.6',
           support: '25.2.0',
-
       ],
 
       auto       : [
-
           value   : '1.2',
           firebase: '1.0.1',
-
       ],
 
       butterknife: '8.5.1',
@@ -31,98 +23,72 @@ ext {
       fab        : '1.10.1',
 
       google     : [
-
           gson: '2.7',
           play: [
-
               services: '10.2.0'
-
           ]
-
       ],
 
       rx         : [
-
           java    : '2.0.6',
           android : '2.0.1',
           tasks   : '1.1.3',
           firebase: '1.2.3',
-
       ],
 
       square     : [
-
           okio   : '1.6.0',
           picasso: '2.5.2'
-
       ],
 
       jUnit      : '4.12',
       truth      : '0.30',
       mockito    : '1.10.19'
-
   ]
 
   libraries = [
 
       annotations: [
-
           jsr305: "com.google.code.findbugs:jsr305:$versions.annotations.jsr305",
           jsr330: "javax.inject:javax.inject:$versions.annotations.jsr330"
-
       ],
 
       android    : [
-
           commons: "io.ashdavies:commons-android:$versions.android.commons",
           support: [
-
-              appCompat   : "com.android.support:appcompat-v7:$versions.android.support",
-              cardView    : "com.android.support:cardview-v7:$versions.android.support",
-              design      : "com.android.support:design:$versions.android.support",
-              recyclerView: "com.android.support:recyclerview-v7:$versions.android.support"
-
+              compat  : "com.android.support:appcompat-v7:$versions.android.support",
+              cards   : "com.android.support:cardview-v7:$versions.android.support",
+              design  : "com.android.support:design:$versions.android.support",
+              recycler: "com.android.support:recyclerview-v7:$versions.android.support"
           ],
-
       ],
 
       auto       : [
-
           value   : [
-
               core    : "com.google.auto.value:auto-value:$versions.auto.value",
               compiler: "com.google.auto.value:auto-value:$versions.auto.value"
-
           ],
 
           firebase: [
-
               core    : "me.mattlogan.auto.value:auto-value-firebase-annotation:$versions.auto.firebase",
               adapter : "me.mattlogan.auto.value:auto-value-firebase-adapter:$versions.auto.firebase",
               compiler: "me.mattlogan.auto.value:auto-value-firebase:$versions.auto.firebase"
-
           ]
-
       ],
 
       butterknife: [
-
           core    : "com.jakewharton:butterknife:$versions.butterknife",
           compiler: "com.jakewharton:butterknife-compiler:$versions.butterknife"
-
       ],
 
       dagger     : [
-
           core    : "com.google.dagger:dagger:$versions.dagger",
           compiler: "com.google.dagger:dagger-compiler:$versions.dagger"
-
       ],
 
       fab        : "com.getbase:floatingactionbutton:$versions.fab",
 
       firebase   : [
-
           core     : "com.google.firebase:firebase-core:$versions.google.play.services",
           auth     : "com.google.firebase:firebase-auth:$versions.google.play.services",
           database : "com.google.firebase:firebase-database:$versions.google.play.services",
@@ -132,39 +98,29 @@ ext {
           indexing : "com.google.firebase:firebase-appindexing:$versions.google.play.services",
           invite   : "com.google.android.gms:play-services-appinvite:$versions.google.play.services",
           messaging: "com.google.firebase:firebase-messaging:$versions.google.play.services"
-
       ],
 
       google     : [
-
           gson: "com.google.code.gson:gson:$versions.google.gson",
           play: [
-
               auth: "com.google.android.gms:play-services-auth:$versions.google.play.services"
-
           ]
-
       ],
 
       rx         : [
-
           java    : "io.reactivex.rxjava2:rxjava:$versions.rx.java",
           android : "io.reactivex.rxjava2:rxandroid:$versions.rx.android",
           tasks   : "io.ashdavies.rx:rx-tasks:$versions.rx.tasks",
           firebase: "io.ashdavies.rx:rx-firebase:$versions.rx.firebase",
-
       ],
 
       square     : [
-
           okio   : "com.squareup.okio:okio:$versions.square.okio",
           picasso: "com.squareup.picasso:picasso:$versions.square.picasso"
-
       ],
 
       jUnit      : "junit:junit:$versions.jUnit",
       truth      : "com.google.truth:truth:$versions.truth",
       mockito    : "org.mockito:mockito-core:$versions.mockito"
-
   ]
 }

@@ -1,10 +1,4 @@
-repositories {
-  jcenter()
-}
-
 apply plugin: 'java'
-apply plugin: 'bintray-release'
-apply plugin: 'jacoco'
 
 dependencies {
   compile libraries.annotations.jsr305
@@ -13,20 +7,6 @@ dependencies {
   testCompile libraries.jUnit
   testCompile libraries.truth
   testCompile libraries.mockito
-}
-
-jacoco {
-  toolVersion = '0.7.5.201505241946'
-}
-
-publish {
-  userOrg = 'ashdavies'
-  groupId = 'io.ashdavies'
-  artifactId = 'commons-rx'
-
-  version = gitVersionName
-  description = 'RxJava Commons'
-  website = 'https://github.com/ashdavies/android-commons'
 }
 
 sourceCompatibility = sourceCompatibilityVersion

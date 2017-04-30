@@ -1,4 +1,4 @@
-package io.ashdavies.commons.adapter;
+package io.ashdavies.adapters;
 
 import android.content.Context;
 import android.graphics.Rect;

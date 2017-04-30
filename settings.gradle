@@ -1,1 +1,1 @@
-include ':android', ':java', ':rx'
+include ':android', ':java', ':rx', ':adapters'

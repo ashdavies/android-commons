@@ -1,15 +1,17 @@
-### Android Commons###
-![Build Status](https://img.shields.io/travis/ashdavies/android-commons.svg)
-![Coverage](https://img.shields.io/codecov/c/github/ashdavies/android-commons.svg)
-![Version](https://img.shields.io/badge/version-0.4.2-yellowgreen.svg)
-![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)
+### Android Commons
+[![Build Status](https://img.shields.io/travis/ashdavies/android-commons.svg)](https://travis-ci.org/ashdavies/android-commons)
+[![Coverage](https://img.shields.io/codecov/c/github/ashdavies/android-commons.svg)](https://codecov.io/github/ashdavies/android-commons)
+[![bintray](https://img.shields.io/bintray/v/ashdavies/maven/android-commons.svg)](https://bintray.com/ashdavies/maven/android-commons)
+[![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](https://github.com/ashdavies/auto/blob/master/LICENSE.txt)
 
 **Common adapters, list helpers and utilities for Android development**
 
-####Usage####
-```android
+#### Usage
+```groovy
+    compile 'io.ashdavies.commons-adapters'
     compile 'io.ashdavies.commons-android'
     compile 'io.ashdavies.commons-java'
+    compile 'io.ashdavies.commons-rx'
 ```
 
 ####Description####
@@ -22,16 +24,3 @@
  - **Reactive:** Simple RxJava network support
  - **Sensors:** Simple RxJava sensor wrappers
  - **Utils:** A collection of instantiation and resource fetching helpers
-
-####License####
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.

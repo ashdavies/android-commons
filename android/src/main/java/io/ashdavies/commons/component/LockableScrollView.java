@@ -21,10 +21,6 @@ public class LockableScrollView extends ScrollView {
     super(context, attrs, defStyleAttr);
   }
 
-  public LockableScrollView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-    super(context, attrs, defStyleAttr, defStyleRes);
-  }
-
   public boolean isScrollingEnabled() {
     return scrollingEnabled;
   }
