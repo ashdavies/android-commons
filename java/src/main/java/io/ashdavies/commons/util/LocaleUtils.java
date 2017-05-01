@@ -3,7 +3,9 @@ package io.ashdavies.commons.util;
 import java.util.Locale;
 
 public final class LocaleUtils {
-  private LocaleUtils() {}
+
+  private LocaleUtils() {
+  }
 
   public static Locale toLocale(String str) {
     if (str == null) {

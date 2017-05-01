@@ -25,9 +25,12 @@ before_script:
 script:
   - ./gradlew build
 
+before_deploy:
+  - chmod +rx tools
+
 deploy:
   - provider: script
-    script: tools/bash-bintray-upload.sh $BINTRAY_USER $BINTRAY_KEY false
+    script: ./tools/bash-bintray-upload.sh $BINTRAY_USER $BINTRAY_KEY false
     skip_cleanup: true
     on:
       branch: master

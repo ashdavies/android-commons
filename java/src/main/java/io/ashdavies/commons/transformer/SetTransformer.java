@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SetTransformer<Input, Output> implements Transformer<Set<Input>, Set<Output>> {
+
   private final Transformer<Input, Output> transformer;
 
   public SetTransformer(Transformer<Input, Output> transformer) {

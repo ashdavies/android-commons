@@ -2,7 +2,6 @@ package io.ashdavies.commons.android;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import dagger.android.support.DaggerAppCompatActivity;
@@ -17,9 +16,6 @@ public abstract class AbstractActivity extends DaggerAppCompatActivity implement
     int layoutId = getLayoutId();
     setContentView(layoutId);
   }
-
-  @LayoutRes
-  abstract int getLayoutId();
 
   @Override
   public boolean shouldShowRequestPermissionRationale(@NonNull String permission) {
@@ -39,6 +35,11 @@ public abstract class AbstractActivity extends DaggerAppCompatActivity implement
   @Override
   public void onProgress(boolean progressing) {
     /* no op */
+  }
+
+  @Override
+  public int getLayoutId() {
+    return 0;
   }
 
   private class ActionBarNotSetException extends RuntimeException {

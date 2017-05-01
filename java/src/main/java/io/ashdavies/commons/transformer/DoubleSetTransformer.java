@@ -3,11 +3,11 @@ package io.ashdavies.commons.transformer;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FlipSetTransformer<Input, Output> extends SetTransformer<Input, Output>
-    implements FlipTransformer<Set<Input>, Set<Output>> {
-  private final FlipTransformer<Input, Output> transformer;
+public class DoubleSetTransformer<Input, Output> extends SetTransformer<Input, Output> implements DoubleTransformer<Set<Input>, Set<Output>> {
 
-  public FlipSetTransformer(FlipTransformer<Input, Output> transformer) {
+  private final DoubleTransformer<Input, Output> transformer;
+
+  public DoubleSetTransformer(DoubleTransformer<Input, Output> transformer) {
     super(transformer);
     this.transformer = transformer;
   }

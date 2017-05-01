@@ -4,7 +4,6 @@ dependencies {
   compile libraries.annotations.jsr305
   compile libraries.annotations.jsr330
 
-  compile libraries.google.gson
   compile libraries.square.okio
 
   testCompile libraries.jUnit

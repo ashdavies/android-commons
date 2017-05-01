@@ -2,19 +2,13 @@ package io.ashdavies.commons.storage;
 
 import java.util.Collection;
 
-public interface Storage<Id, T> {
+public interface Storage<T> {
 
-  T get(Id id) throws IndexNotFoundException;
+  Collection<T> read();
 
-  Collection<T> getAll();
+  boolean delete(T t);
 
-  void put(T t, Resolver<Id, T> resolver);
+  void clear();
 
-  class IndexNotFoundException extends RuntimeException {
-  }
-
-  interface Resolver<Id, T> {
-
-    Id resolve(T t);
-  }
+  boolean contains(T t);
 }

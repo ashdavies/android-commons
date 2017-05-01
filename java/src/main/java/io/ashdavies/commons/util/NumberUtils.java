@@ -1,6 +1,7 @@
 package io.ashdavies.commons.util;
 
 public final class NumberUtils {
+
   private NumberUtils() {
     throw new IllegalStateException("No instances");
   }

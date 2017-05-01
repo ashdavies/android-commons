@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 public final class StringUtils {
+
   public static final String EMPTY = "";
   public static final String SPACE = " ";
 

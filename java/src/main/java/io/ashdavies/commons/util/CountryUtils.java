@@ -1,6 +1,7 @@
 package io.ashdavies.commons.util;
 
 public final class CountryUtils {
+
   private static final String AUSTRIA_ISO_3 = "AUT";
   private static final String GERMANY_ISO_3 = "DEU";
 

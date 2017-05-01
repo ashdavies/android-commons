@@ -4,7 +4,7 @@
 [![bintray](https://img.shields.io/bintray/v/ashdavies/maven/android-commons.svg)](https://bintray.com/ashdavies/maven/android-commons)
 [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](https://github.com/ashdavies/auto/blob/master/LICENSE.txt)
 
-**Common adapters, list helpers and utilities for Android development**
+**Common adapters, ts helpers and utilities for Android development**
 
 #### Usage
 ```groovy

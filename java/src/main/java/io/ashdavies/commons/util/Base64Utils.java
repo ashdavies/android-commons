@@ -4,6 +4,7 @@ import java.nio.charset.Charset;
 import okio.ByteString;
 
 public final class Base64Utils {
+
   private static final Charset CHARSET = Charset.forName("UTF-8");
 
   private Base64Utils() {

@@ -2,31 +2,56 @@ package io.ashdavies.commons.storage;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import javax.annotation.Nonnull;
 
-public class ListStorage<T> implements Storage<Integer, T> {
-  private final List<T> list;
+public class ListStorage<T> implements IndexedStorage<T>, Iterable<T> {
+
+  private final List<T> ts;
 
   public ListStorage() {
-    this(new ArrayList<T>());
+    this.ts = new ArrayList<>();
   }
 
-  public ListStorage(List<T> list) {
-    this.list = list;
-  }
-
-  @Override
-  public T get(Integer index) throws IndexNotFoundException {
-    return list.get(index);
+  public ListStorage(List<T> ts) {
+    this.ts = new ArrayList<>(ts);
   }
 
   @Override
-  public Collection<T> getAll() {
-    return new ArrayList<>(list);
+  public T get(Predicate<T> predicate) throws IndexNotFoundException {
+    for (T t : ts) {
+      if (predicate.test(t)) {
+        return t;
+      }
+    }
+
+    throw new IndexNotFoundException();
   }
 
   @Override
-  public void put(T t, Resolver<Integer, T> resolver) {
-    list.set(resolver.resolve(t), t);
+  public Collection<T> read() {
+    return ts;
+  }
+
+  @Override
+  public boolean delete(T t) {
+    return ts.remove(t);
+  }
+
+  @Override
+  public void clear() {
+    ts.clear();
+  }
+
+  @Override
+  public boolean contains(T t) {
+    return ts.contains(t);
+  }
+
+  @Nonnull
+  @Override
+  public Iterator<T> iterator() {
+    return ts.iterator();
   }
 }

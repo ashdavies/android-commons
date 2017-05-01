@@ -1,6 +1,7 @@
 package io.ashdavies.commons.util;
 
 public final class LocationUtils {
+
   private LocationUtils() {
     throw new IllegalStateException("No instances");
   }
