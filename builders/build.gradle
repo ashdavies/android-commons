@@ -9,10 +9,6 @@ buildscript {
   }
 }
 
-repositories {
-  jcenter()
-}
-
 apply plugin: 'com.android.library'
 apply plugin: 'jacoco-android'
 
@@ -38,22 +34,9 @@ android {
     versionCode gitVersionCode
     versionName gitVersionName
   }
-
-  lintOptions {
-  }
 }
 
 dependencies {
-  compile project(':builders')
-  compile project(':java')
-  compile project(':rx')
-
-  compile libraries.android.support.compat
-  compile libraries.android.support.cards
-
-  compile libraries.dagger.core
-  compile libraries.dagger.android.support
-
   testCompile libraries.jUnit
   testCompile libraries.truth
   testCompile libraries.mockito

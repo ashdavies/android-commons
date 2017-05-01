@@ -28,6 +28,7 @@ script:
 deploy:
   - provider: script
     script: tools/bash-bintray-upload.sh $BINTRAY_USER $BINTRAY_KEY false
+    skip_cleanup: true
     on:
       branch: master
 
