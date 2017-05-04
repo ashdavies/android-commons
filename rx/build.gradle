@@ -1,5 +1,7 @@
 apply plugin: 'java'
 
+apply from: '../tools/script-bintray-release.gradle'
+
 dependencies {
   compile libraries.annotations.jsr305
   compile libraries.rx.java
@@ -9,6 +11,6 @@ dependencies {
   testCompile libraries.mockito
 }
 
-sourceCompatibility = sourceCompatibilityVersion
-targetCompatibility = targetCompatibilityVersion
+sourceCompatibility = configuration.sourceCompatibility
+targetCompatibility = configuration.targetCompatibility
 

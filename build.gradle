@@ -4,14 +4,14 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.novoda:bintray-release:0.3.4'
+    classpath 'com.novoda:bintray-release:0.4.0'
   }
-
-  apply from: file('tools/script-library-versions.gradle')
-  apply from: file('tools/script-bintray-release.gradle')
 }
 
 allprojects {
+  apply from: file("$project.rootDir/tools/script-dependencies.gradle")
+  apply from: file("$project.rootDir/tools/script-grgit-version.gradle")
+
   repositories {
     jcenter()
   }

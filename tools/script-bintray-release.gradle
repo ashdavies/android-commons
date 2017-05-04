@@ -1,31 +1,11 @@
-buildscript {
-  repositories {
-    jcenter()
-  }
+apply plugin: 'bintray-release'
 
-  dependencies {
-    classpath 'com.novoda:bintray-release:0.3.4'
-    classpath 'org.ajoberstar:grgit:1.5.0'
-  }
-}
+publish {
+  userOrg = 'ashdavies'
+  groupId = 'io.ashdavies'
+  artifactId = 'commons-android-' + project.name
 
-project.afterEvaluate { project ->
-  apply plugin: 'bintray-release'
-
-  publish {
-    userOrg = 'ashdavies'
-    groupId = 'io.ashdavies'
-    artifactId = 'commons-android-' + project.name
-
-    version = gitVersionName
-    description = 'A collection of useful Android utilities'
-    website = 'https://github.com/ashdavies/android-commons'
-  }
-}
-
-ext {
-  git = org.ajoberstar.grgit.Grgit.open(currentDir: projectDir)
-  gitVersionName = git.describe()
-  gitVersionCode = git.tag.list().size()
-  gitVersionTime = git.head().time
+  version = configuration.versionName
+  description = 'A collection of useful Android utilities'
+  website = 'https://github.com/ashdavies/android-commons'
 }

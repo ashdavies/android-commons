@@ -1,0 +1,17 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'org.ajoberstar:grgit:1.5.0'
+  }
+}
+
+ext {
+  git = org.ajoberstar.grgit.Grgit.open(currentDir: projectDir)
+
+  configuration.versionName = git.describe()
+  configuration.versionCode = git.tag.list().size()
+  configuration.versionTime = git.head().time
+}

@@ -4,21 +4,19 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.3.0'
-    classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
+    classpath "com.android.tools.build:gradle:$versions.android.gradle"
+    classpath "com.dicedmelon.gradle:jacoco-android:$versions.android.jacoco"
   }
-}
-
-repositories {
-  jcenter()
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'jacoco-android'
 
+apply from: '../tools/script-bintray-release.gradle'
+
 android {
-  compileSdkVersion 25
-  buildToolsVersion '25.0.2'
+  compileSdkVersion configuration.compileSdkVersion
+  buildToolsVersion configuration.buildToolsVersion
 
   buildTypes {
     debug {
@@ -27,19 +25,16 @@ android {
   }
 
   compileOptions {
-    sourceCompatibility sourceCompatibilityVersion
-    targetCompatibility targetCompatibilityVersion
+    sourceCompatibility configuration.sourceCompatibility
+    targetCompatibility configuration.targetCompatibility
   }
 
   defaultConfig {
-    minSdkVersion 16
-    targetSdkVersion 25
+    minSdkVersion configuration.minSdkVersion
+    targetSdkVersion configuration.targetSdkVersion
 
-    versionCode gitVersionCode
-    versionName gitVersionName
-  }
-
-  lintOptions {
+    versionCode configuration.versionCode
+    versionName configuration.versionName
   }
 }
 
